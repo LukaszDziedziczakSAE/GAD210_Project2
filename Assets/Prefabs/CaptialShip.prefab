@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2014418402838462508}
   - component: {fileID: 2415688524379930873}
+  - component: {fileID: -260606172073468449}
   m_Layer: 0
   m_Name: CaptialShip
   m_TagString: Untagged
@@ -50,6 +51,21 @@ MonoBehaviour:
   <ForwardPortWaypoint>k__BackingField: {fileID: 8492633039792184010}
   <AftStarboardWaypoint>k__BackingField: {fileID: 5493230201495736705}
   <AftPortWaypoint>k__BackingField: {fileID: 4710522830050315094}
+--- !u!114 &-260606172073468449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615511301627232325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5377938a04b0a914c97662ee049d6eb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLocation: {x: 0, y: 0, z: 0}
+  moveSpeed: 1
+  rotationSpeed: 1
 --- !u!1 &1083043908493111295
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8944393113334028955
+--- !u!1 &4862716736860061250
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5293988748860228069}
-  - component: {fileID: 2166718100573750970}
-  - component: {fileID: 8097307824978815191}
-  - component: {fileID: 5984447038820344914}
-  - component: {fileID: 3053452799239542890}
-  - component: {fileID: 3804202523726584608}
+  - component: {fileID: 7105591933228982015}
+  - component: {fileID: 5161223804324789996}
+  - component: {fileID: 7250696047980758697}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5293988748860228069
+--- !u!4 &7105591933228982015
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8944393113334028955}
+  m_GameObject: {fileID: 4862716736860061250}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 5293988748860228069}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2166718100573750970
+--- !u!33 &5161223804324789996
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8944393113334028955}
+  m_GameObject: {fileID: 4862716736860061250}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8097307824978815191
+--- !u!23 &7250696047980758697
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8944393113334028955}
+  m_GameObject: {fileID: 4862716736860061250}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,6 +83,50 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8944393113334028955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5293988748860228069}
+  - component: {fileID: 2166718100573750970}
+  - component: {fileID: 5984447038820344914}
+  - component: {fileID: 3053452799239542890}
+  - component: {fileID: 3804202523726584608}
+  m_Layer: 0
+  m_Name: Enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5293988748860228069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944393113334028955}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7105591933228982015}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2166718100573750970
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944393113334028955}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &5984447038820344914
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -105,8 +146,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.4, y: 3, z: 2}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &3053452799239542890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,9 +160,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5377938a04b0a914c97662ee049d6eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetLocation: {x: 0, y: 0, z: 0}
   moveSpeed: 3
   rotationSpeed: 2
+  targetProximity: 0.5
+  targetWaypoint: {fileID: 0}
+  targetLocation: {x: 0, y: 0, z: 0}
 --- !u!114 &3804202523726584608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,4 +177,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c54033374a0007745988bbcd83a5aa33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 3053452799239542890}
+  <ShipMovement>k__BackingField: {fileID: 0}

@@ -3,17 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - InputPlane
+  - Mothership
+  - CapitalShip
+  - Enemy Ship
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Input
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Player
+  - Mothership
+  - Turret
   - 
   - 
   - 

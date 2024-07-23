@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d3400f7c104e744b46bb97bde5ed2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ShipMovement>k__BackingField: {fileID: -260606172073468449}
   <ForwardStarboardWaypoint>k__BackingField: {fileID: 4147093251591965461}
   <ForwardPortWaypoint>k__BackingField: {fileID: 8492633039792184010}
   <AftStarboardWaypoint>k__BackingField: {fileID: 5493230201495736705}
@@ -63,9 +64,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5377938a04b0a914c97662ee049d6eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 0.5
+  rotationSpeed: 0.1
+  targetProximity: 0.5
+  targetWaypoint: {fileID: 0}
   targetLocation: {x: 0, y: 0, z: 0}
-  moveSpeed: 1
-  rotationSpeed: 1
 --- !u!1 &1083043908493111295
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +97,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 1, z: 6}
+  m_LocalScale: {x: 5, y: 1, z: 15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2014418402838462508}
@@ -210,7 +213,7 @@ PrefabInstance:
     - target: {fileID: 2976030806686435572, guid: 7f044b85dbdb0a14c933545d0695a1e1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2976030806686435572, guid: 7f044b85dbdb0a14c933545d0695a1e1,
         type: 3}
@@ -296,7 +299,7 @@ PrefabInstance:
     - target: {fileID: 2976030806686435572, guid: 7f044b85dbdb0a14c933545d0695a1e1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2976030806686435572, guid: 7f044b85dbdb0a14c933545d0695a1e1,
         type: 3}
@@ -382,7 +385,7 @@ PrefabInstance:
     - target: {fileID: 2976030806686435572, guid: 7f044b85dbdb0a14c933545d0695a1e1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: -10.66
       objectReference: {fileID: 0}
     - target: {fileID: 2976030806686435572, guid: 7f044b85dbdb0a14c933545d0695a1e1,
         type: 3}
@@ -468,7 +471,7 @@ PrefabInstance:
     - target: {fileID: 2976030806686435572, guid: 7f044b85dbdb0a14c933545d0695a1e1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: -10.66
       objectReference: {fileID: 0}
     - target: {fileID: 2976030806686435572, guid: 7f044b85dbdb0a14c933545d0695a1e1,
         type: 3}

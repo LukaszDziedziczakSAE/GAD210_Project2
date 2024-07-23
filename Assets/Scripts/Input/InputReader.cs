@@ -11,6 +11,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action LeftClickPress;
     public event Action LeftClickRelease;
     public bool LeftClickDown {  get; private set; }
+    public Vector2 MousePosition { get; private set; }
 
     private void Awake()
     {
@@ -31,5 +32,10 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
             LeftClickDown = false;
             LeftClickRelease?.Invoke();
         }
+    }
+
+    public void OnMousePosition(InputAction.CallbackContext context)
+    {
+        MousePosition = context.ReadValue<Vector2>();
     }
 }

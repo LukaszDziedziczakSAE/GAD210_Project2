@@ -49,6 +49,7 @@ MonoBehaviour:
   input: {fileID: 7896106256952360991}
   transportShip: {fileID: 0}
   mothership: {fileID: 0}
+  cameraController: {fileID: 4517857645220409805}
 --- !u!114 &7896106256952360991
 MonoBehaviour:
   m_ObjectHideFlags: 0

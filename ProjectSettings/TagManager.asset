@@ -8,6 +8,7 @@ TagManager:
   - Mothership
   - CapitalShip
   - Enemy Ship
+  - Waypoint
   layers:
   - Default
   - TransparentFX

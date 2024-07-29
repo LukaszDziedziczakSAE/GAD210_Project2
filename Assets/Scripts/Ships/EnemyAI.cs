@@ -84,22 +84,20 @@ public class EnemyAI : MonoBehaviour
         if (forward)
         {
             ship.ShipMovement.SetTargetWaypoint(waypointPair.FowardWaypoint);
-            Debug.Log(name + " set forward waypoint");
+            //Debug.Log(name + " set forward waypoint");
         }
         else
         {
             ship.ShipMovement.SetTargetWaypoint(waypointPair.BackWaypoint);
-            Debug.Log(name + " set back waypoint");
+            //Debug.Log(name + " set back waypoint");
         }
-        
-        
     }
 
     private void OnArriveToWaypoint()
     {
         forward = !forward;
         SetNextWaypoint();
-        Debug.Log(name + " Recieved on arrive event");
+        //Debug.Log(name + " Recieved on arrive event");
 
     }
 }

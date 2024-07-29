@@ -53,4 +53,15 @@ public class Mothership : CapitalShip
             return turrets.ToArray();
         }
     }
+
+    public Turret[] GetPortTurrets()
+    {
+        List<Turret> turrets = new List<Turret>();
+        foreach (Turret turret in Turrets)
+        {
+            if (turret.State == Turret.EState.Built && turret.Type == Turret.EType.Port) turrets.Add(turret);
+        }
+
+        return turrets.ToArray();
+    }
 }

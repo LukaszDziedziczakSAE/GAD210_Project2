@@ -1,6 +1,5 @@
+using Cinemachine.Utility;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShipMovement : MonoBehaviour
@@ -19,19 +18,19 @@ public class ShipMovement : MonoBehaviour
     {
         if (targetWaypoint == null && targetLocation == Vector3.zero) return;
         
-        Vector3 targetDirection;
-        if (targetWaypoint != null)
+        //Vector3 targetDirection;
+        /*if (targetWaypoint != null)
         {
-            if(Vector3.Distance(transform.position, targetWaypoint.transform.position)< targetProximity)
+            if (Vector3.Distance(transform.position, targetWaypoint.transform.position) < targetProximity)
             {
                 targetWaypoint = null;
                 OnArrived?.Invoke();
                 Debug.Log(name + " Reached waypoint");
-                
+
                 return;
-                
+
             }
-            targetDirection =   targetWaypoint.transform.position - transform.position;
+            targetDirection = targetWaypoint.transform.position - transform.position;
         }
         else
         {
@@ -39,23 +38,33 @@ public class ShipMovement : MonoBehaviour
             {
                 ClearTargetPosition();
                 OnArrived?.Invoke();
-                
+
                 return;
 
             }
             targetDirection = targetLocation - transform.position;
-        }
+        }*/
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, rotationSpeed * Time.deltaTime, 0.0f);
 
         transform.rotation = Quaternion.LookRotation(newDirection);
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
 
-        
+        if (reachedTargetPosition)
+        {
+            ClearTargetWaypoint();
+            ClearTargetPosition();
+            OnArrived?.Invoke();
+        }
     }
     
     public void SetTargetWaypoint(Waypoint waypoint)
     {
         targetWaypoint = waypoint;
+    }
+
+    public void ClearTargetWaypoint()
+    {
+        targetWaypoint = null;
     }
 
     public void SetTargetPosition(Vector3 target)
@@ -67,5 +76,41 @@ public class ShipMovement : MonoBehaviour
     {
         targetLocation = Vector3.zero;
     }
-  
+
+    private Vector3 targetDirection
+    {
+        get
+        {
+            Vector3 direction = targetPosition - transform.position;
+            print("targetDirection " + direction + ", ownPosition " + transform.position);
+            return direction;
+
+        }
+    }
+
+    private Vector3 targetPosition
+    {
+        get
+        {
+            Vector3 targetPos;
+            if (targetWaypoint != null)
+            {
+                targetPos = targetWaypoint.transform.position;
+            }
+            else
+            {
+                targetPos = targetLocation;
+            }
+            targetPos.y = transform.position.y;
+            return targetPos;
+        }
+    }
+
+    private bool reachedTargetPosition
+    {
+        get
+        {
+            return Vector3.Distance(transform.position, targetPosition) <= targetProximity;
+        }
+    }
 }

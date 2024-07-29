@@ -11,4 +11,46 @@ public class Mothership : CapitalShip
     [field: SerializeField] public MothershipPower Power { get; private set; }
     [field: SerializeField] public MothershipResources Resources { get; private set; }
     [field: SerializeField] public MothershipTurretUpgradeMode TurretUpgradeMode { get; private set; }
+
+    public Turret[] BuiltTurrets
+    {
+        get
+        {
+            List<Turret> turrets = new List<Turret>();
+            foreach (Turret turret in Turrets)
+            {
+                if (turret.State == Turret.EState.Built) turrets.Add(turret);
+            }
+
+            return turrets.ToArray();
+        }
+    }
+
+    public Turret[] StarboardTurrets
+    {
+        get
+        {
+            List<Turret> turrets = new List<Turret>();
+            foreach (Turret turret in Turrets)
+            {
+                if (turret.State == Turret.EState.Built && turret.Type == Turret.EType.Starboard) turrets.Add(turret);
+            }
+
+            return turrets.ToArray();
+        }
+    }
+
+    public Turret[] PortTurrets
+    {
+        get
+        {
+            List<Turret> turrets = new List<Turret>();
+            foreach (Turret turret in Turrets)
+            {
+                if (turret.State == Turret.EState.Built && turret.Type == Turret.EType.Port) turrets.Add(turret);
+            }
+
+            return turrets.ToArray();
+        }
+    }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7105591933228982015}
   - component: {fileID: 5161223804324789996}
   - component: {fileID: 7250696047980758697}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3804202523726584608}
   - component: {fileID: 4711632686451727126}
   - component: {fileID: 5367877092660234548}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 20
-  rotationSpeed: 2
-  targetProximity: 0.5
+  rotationSpeed: 20
+  targetProximity: 2
   targetWaypoint: {fileID: 0}
   targetLocation: {x: 0, y: 0, z: 0}
 --- !u!114 &3804202523726584608

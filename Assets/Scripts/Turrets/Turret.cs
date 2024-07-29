@@ -10,8 +10,16 @@ public class Turret : MonoBehaviour
     [field: SerializeField] public CinemachineVirtualCamera Camera {  get; private set; }
     [field: SerializeField] public TurretTargeting Targeting { get; private set; }
     [field: SerializeField] public ProjectileLauncher ProjectileLauncher { get; private set; }
+    [field: SerializeField] public EType Type { get; private set; }
 
     public EState State {  get; private set; }
+
+    public enum EType
+    {
+        Starboard,
+        Port,
+        Omnidirectional
+    }
 
     private void Start()
     {

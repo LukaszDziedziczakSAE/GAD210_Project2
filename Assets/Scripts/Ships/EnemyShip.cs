@@ -7,6 +7,6 @@ public class EnemyShip : Ship
 {
     [field: SerializeField] public EnemyAI AI { get; private set; }
 
-
+    
 
 }

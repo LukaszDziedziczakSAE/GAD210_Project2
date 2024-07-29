@@ -1,4 +1,5 @@
 using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,9 @@ public class Turret : MonoBehaviour
 {
     [SerializeField] GameObject turretBase;
     [SerializeField] GameObject pivot;
+
+    public event Action OnFiring;
+
     [field: SerializeField] public CinemachineVirtualCamera Camera {  get; private set; }
     [field: SerializeField] public TurretTargeting Targeting { get; private set; }
     [field: SerializeField] public ProjectileLauncher ProjectileLauncher { get; private set; }
@@ -72,5 +76,7 @@ public class Turret : MonoBehaviour
 
         Power.FireShot();
         if (ProjectileLauncher != null) ProjectileLauncher.Fire();
+
+        OnFiring?.Invoke();
     }
 }

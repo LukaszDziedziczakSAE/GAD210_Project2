@@ -10,6 +10,7 @@ public class Turret : MonoBehaviour
     [field: SerializeField] public CinemachineVirtualCamera Camera {  get; private set; }
     [field: SerializeField] public TurretTargeting Targeting { get; private set; }
     [field: SerializeField] public ProjectileLauncher ProjectileLauncher { get; private set; }
+    [field: SerializeField] public TurretPower Power { get; private set; }
     [field: SerializeField] public EType Type { get; private set; }
 
     public EState State {  get; private set; }
@@ -63,5 +64,13 @@ public class Turret : MonoBehaviour
     {
         Game.Mothership.Resources.RemoveResources(Game.Mothership.BuildMode.TurretCost);
         SetBuiltState();
+    }
+
+    public void Fire()
+    {
+        if (Power != null && !Power.CanFire) return;
+
+        Power.FireShot();
+        if (ProjectileLauncher != null) ProjectileLauncher.Fire();
     }
 }

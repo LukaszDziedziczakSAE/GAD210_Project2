@@ -24,4 +24,6 @@ public class TurretPower : MonoBehaviour
     {
         CurrentPower = MaxCapacity;
     }
+
+    public float Percentage => (float)CurrentPower / (float)MaxCapacity;
 }

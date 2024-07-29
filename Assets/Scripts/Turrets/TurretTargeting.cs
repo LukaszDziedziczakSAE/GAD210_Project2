@@ -18,7 +18,7 @@ public class TurretTargeting : MonoBehaviour
 
         if (enemyShips.Count > 0)
         {
-            turret.ProjectileLauncher.Fire();
+            turret.Fire();
 
             foreach (EnemyShip enemyShip in enemyShips.ToArray())
             {

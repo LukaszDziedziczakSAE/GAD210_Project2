@@ -15,13 +15,16 @@ public class Health : MonoBehaviour
         CurrentHealth = MaxHealth;
 
     }
-    public void TakeDamage(float damage)
+    public void ApplyDamage(float damage)
     {
-        CurrentHealth -= damage;
-        CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
+        Debug.Log(name + " took " + damage + " damage");
+        CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, MaxHealth);
+
         if(CurrentHealth == 0)
         {
             OnDeath?.Invoke();
+            Debug.Log(name + " destroyed");
+            Destroy(gameObject);
         }
     }
 
@@ -30,8 +33,5 @@ public class Health : MonoBehaviour
         CurrentHealth += RestoreAmount;
         CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
     }
-
-
-
     
 }

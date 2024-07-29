@@ -82,7 +82,6 @@ public class ShipMovement : MonoBehaviour
         get
         {
             Vector3 direction = targetPosition - transform.position;
-            print("targetDirection " + direction + ", ownPosition " + transform.position);
             return direction;
 
         }

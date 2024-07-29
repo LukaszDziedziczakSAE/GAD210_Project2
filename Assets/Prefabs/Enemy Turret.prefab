@@ -11,7 +11,17 @@ PrefabInstance:
     - target: {fileID: 378189019127912877, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
       propertyPath: m_Name
-      value: Turret
+      value: Enemy Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007576580211418524, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: <Type>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678776415334488935, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_Radius
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7865817132464616656, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}

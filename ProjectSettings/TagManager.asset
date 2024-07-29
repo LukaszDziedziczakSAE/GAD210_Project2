@@ -9,6 +9,8 @@ TagManager:
   - CapitalShip
   - Enemy Ship
   - Waypoint
+  - Turret
+  - TurretTargetting
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Mothership
   - Turret
   - Enemy
-  - 
+  - Ship
   - 
   - 
   - 

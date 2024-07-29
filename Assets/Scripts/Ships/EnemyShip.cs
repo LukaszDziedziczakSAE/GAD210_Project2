@@ -7,6 +7,11 @@ public class EnemyShip : Ship
 {
     [field: SerializeField] public EnemyAI AI { get; private set; }
 
-    
+    [field: SerializeField] public Turret Turret { get; private set; }
+
+    private void Start()
+    {
+        Turret.SetBuiltState();
+    }
 
 }

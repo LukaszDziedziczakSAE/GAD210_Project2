@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7134796644409318156}
   m_Layer: 8
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,9 @@ MonoBehaviour:
   <Camera>k__BackingField: {fileID: 5171796277933835934}
   <Targeting>k__BackingField: {fileID: 2619785108284601967}
   <ProjectileLauncher>k__BackingField: {fileID: 1989394946819076643}
+  <Power>k__BackingField: {fileID: 7134796644409318156}
   <Type>k__BackingField: 0
+  <Damage>k__BackingField: 10
 --- !u!114 &1989394946819076643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,7 +493,7 @@ GameObject:
   - component: {fileID: 7678776415334488935}
   m_Layer: 0
   m_Name: Turret Targetting
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

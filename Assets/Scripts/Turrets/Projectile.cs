@@ -25,12 +25,16 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<EnemyShip>(out EnemyShip enemyShip))
+        if (other.tag == "Turret") return;
+
+        if (other.TryGetComponent<Ship>(out Ship ship))
         {
-            Destroy(enemyShip.gameObject);
+            ship.Health.ApplyDamage(damage);
         }
-
-
+        else
+        {
+            Debug.LogWarning(name + " hit " + other.name);
+        }
         Destroy(gameObject);
     }
 

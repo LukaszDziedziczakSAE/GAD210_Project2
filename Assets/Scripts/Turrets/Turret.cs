@@ -34,9 +34,17 @@ public class Turret : MonoBehaviour
         Omnidirectional
     }
 
+    private void Awake()
+    {
+        if (Power == null) Power = GetComponent<TurretPower>();
+        if (Targeting == null) Targeting = GetComponentInChildren<TurretTargeting>();
+        if (ProjectileLauncher == null) ProjectileLauncher = GetComponent<ProjectileLauncher>();
+    }
+
     private void Start()
     {
-        SetUnbuiltState();
+        if (Type != EType.Omnidirectional) SetUnbuiltState();
+        //else SetBuiltState();
     }
 
     public void SetUnbuiltState()
@@ -74,10 +82,12 @@ public class Turret : MonoBehaviour
     public void Fire()
     {
         if (Power != null && !Power.CanFire) return;
+        if (ProjectileLauncher != null && !ProjectileLauncher.CanFire) return; 
 
-        Power.FireShot();
+        if (Power != null) Power.ConsumeShotCost();
         if (ProjectileLauncher != null) ProjectileLauncher.Fire();
 
+        Debug.Log(name + " firing");
         OnFiring?.Invoke();
     }
 }

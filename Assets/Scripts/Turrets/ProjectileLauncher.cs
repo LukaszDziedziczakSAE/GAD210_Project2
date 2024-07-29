@@ -26,4 +26,6 @@ public class ProjectileLauncher : MonoBehaviour
         lastFireTime = Time.time;
         //Debug.Log("Firing");
     }
+
+    public bool CanFire => timeSinceLastFire >= fireRate;
 }

@@ -15,9 +15,10 @@ public class TurretPower : MonoBehaviour
 
     public bool CanFire => CurrentPower - ShotCost >= 0;
 
-    public void FireShot()
+    public void ConsumeShotCost()
     {
         CurrentPower -= ShotCost;
+        Debug.Log("Remining power = " + CurrentPower);
     }
 
     public void Resupply()

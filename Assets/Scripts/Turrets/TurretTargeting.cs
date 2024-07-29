@@ -1,11 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretTargeting : MonoBehaviour
 {
     Turret turret;
-    List<EnemyShip> enemyShips = new List<EnemyShip>();
+    List<Ship> inRange = new List<Ship>();
 
     private void Awake()
     {
@@ -16,25 +15,35 @@ public class TurretTargeting : MonoBehaviour
     {
         if (turret.State != Turret.EState.Built) return;
 
-        if (enemyShips.Count > 0)
+        if (inRange.Count > 0)
         {
             turret.Fire();
 
-            foreach (EnemyShip enemyShip in enemyShips.ToArray())
+            foreach (Ship enemyShip in inRange.ToArray())
             {
-                if (enemyShip == null) enemyShips.Remove(enemyShip);
+                if (enemyShip == null) inRange.Remove(enemyShip);
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (turret.State != Turret.EState.Built) return;
+        print(name + " OnTriggerEnter");
 
-        if (other.TryGetComponent<EnemyShip>(out EnemyShip enemyShip))
+        if (turret.State != Turret.EState.Built)
         {
-            enemyShips.Add(enemyShip);
+            Debug.Log(name + " is in " + turret.State + " state");
+            return;
+        }
+
+        if (other.TryGetComponent<Ship>(out Ship ship))
+        {
+            inRange.Add(ship);
             Debug.Log(turret.name + " has enemy ship in range");
+        }
+        else
+        {
+            Debug.Log(turret.name + " has " + other.name + "in range");
         }
     }
 
@@ -42,9 +51,9 @@ public class TurretTargeting : MonoBehaviour
     {
         if (turret.State != Turret.EState.Built) return;
 
-        if (other.TryGetComponent<EnemyShip>(out EnemyShip enemyShip))
+        if (other.TryGetComponent<Ship>(out Ship ship))
         {
-            enemyShips.Remove(enemyShip);
+            inRange.Remove(ship);
         }
     }
 }

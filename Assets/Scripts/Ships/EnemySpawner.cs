@@ -14,17 +14,17 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         spawnTimer = spawnTime;
-        SpawnEnemy();
+        //SpawnEnemy();
     }
 
     private void Update()
     {
-        /*spawnTimer -= Time.deltaTime;
-        if(spawnTimer <= 0)
+        spawnTimer -= Time.deltaTime;
+        if (spawnTimer <= 0)
         {
             SpawnEnemy();
             ResetTimer();
-        }*/
+        }
     }
 
     public void SpawnEnemy()
@@ -37,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
 
         int randomSpawnPoint = Random.Range(0, spawner.Length);
         EnemyShip enemyShip = Instantiate(enemyPrefab, spawner[randomSpawnPoint].transform.position, Quaternion.identity);
-        enemyShip.AI.SetNavSystem(Game.TransportShip.RandomPair);
+        enemyShip.AI.SetNavSystem(Game.Mothership.RandomPair);
         enemyShip.name = "Enemy" + Random.Range(100, 1000);
     }
 

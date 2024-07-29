@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class UI_TurretList : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] UI_TurretListItem turretListItemPrefab;
+    [SerializeField] Turret.EType side;
+    List<UI_TurretListItem> list = new List<UI_TurretListItem>();
+
+    private Turret[] turrets
     {
-        
+        get
+        {
+            if (side == Turret.EType.Starboard) return Game.Mothership.StarboardTurrets;
+            else if (side == Turret.EType.Port) return Game.Mothership.PortTurrets;
+            else return new Turret[0];
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RedrawList()
     {
-        
+        ClearList();
+
+        foreach (Turret turret in turrets)
+        {
+            UI_TurretListItem listItem = Instantiate(turretListItemPrefab, transform);
+            listItem.Initilize(turret);
+            list.Add(listItem);
+        }
+    }
+
+    public void ClearList()
+    {
+        foreach (UI_TurretListItem item in list)
+        {
+            Destroy(item.gameObject);
+        }
+
+        list.Clear();
     }
 }

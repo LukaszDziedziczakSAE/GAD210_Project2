@@ -11,7 +11,7 @@ public class EnemyShip : Ship
 
     private void Start()
     {
-        Turret.SetBuiltState();
+        if (Turret != null) Turret.SetBuiltState();
     }
 
 }

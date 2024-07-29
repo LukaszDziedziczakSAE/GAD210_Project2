@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class TurretPower : MonoBehaviour
 {
+    Turret turret;
     [field: SerializeField] public int MaxCapacity { get; private set; }
     [field: SerializeField] public int CurrentPower { get; private set; }
     [field: SerializeField] public int ShotCost { get; private set; }
 
+    private void Awake()
+    {
+        turret = GetComponent<Turret>();
+    }
+
     private void Start()
     {
-        Resupply();
+        CurrentPower = MaxCapacity;
     }
 
     public bool CanFire => CurrentPower - ShotCost >= 0;
@@ -18,12 +24,12 @@ public class TurretPower : MonoBehaviour
     public void ConsumeShotCost()
     {
         CurrentPower -= ShotCost;
-        Debug.Log("Remining power = " + CurrentPower);
+        if (turret.ShowDebugs) Debug.Log("Remining power = " + CurrentPower);
     }
 
-    public void Resupply()
+    public void Resupply(int amount)
     {
-        CurrentPower = MaxCapacity;
+        CurrentPower += amount;
     }
 
     public float Percentage => (float)CurrentPower / (float)MaxCapacity;
@@ -32,4 +38,6 @@ public class TurretPower : MonoBehaviour
     {
         return CurrentPower;
     }
+
+    public int PowerNeeded => MaxCapacity - CurrentPower;
 }

@@ -7,7 +7,7 @@ public class UI : MonoBehaviour
     public static UI Instance { get; private set; }
     [SerializeField] UI_PowerIndicator powerIndicator;
     [SerializeField] UI_ResourcesIndicator resourcesIndicator;
-    [SerializeField] GameObject playView;
+    [SerializeField] UI_View_Tactical tacticalView;
     [SerializeField] GameObject mothershipView;
     [SerializeField] GameObject turretView;
 
@@ -36,20 +36,20 @@ public class UI : MonoBehaviour
     {
         Instance.turretView.SetActive(false);
         Instance.mothershipView.SetActive(false);
-        Instance.playView.SetActive(true);
+        Instance.tacticalView.gameObject.SetActive(true);
     }
 
     public static void SwitchToMothershipView()
     {
         Instance.turretView.SetActive(false);
-        Instance.playView.SetActive(false);
+        Instance.tacticalView.gameObject.SetActive(false);
         Instance.mothershipView.SetActive(true);
     }
 
     public static void SwitchToTurretView()
     {
         Instance.mothershipView.SetActive(false);
-        Instance.playView.SetActive(false);
+        Instance.tacticalView.gameObject.SetActive(false);
         Instance.turretView.SetActive(true);
     }
 }

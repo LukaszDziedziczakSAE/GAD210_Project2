@@ -55,14 +55,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f40d3c29232a8409d6f0cec80af8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ShowDebugs>k__BackingField: 0
   turretBase: {fileID: 1546410513415753046}
-  pivot: {fileID: 5766887913270473902}
+  turretHead: {fileID: 5766887913270473902}
+  pivot: {fileID: 5766887913270634636}
   <Camera>k__BackingField: {fileID: 5171796277933835934}
   <Targeting>k__BackingField: {fileID: 2619785108284601967}
   <ProjectileLauncher>k__BackingField: {fileID: 1989394946819076643}
   <Power>k__BackingField: {fileID: 7134796644409318156}
+  <State>k__BackingField: 0
   <Type>k__BackingField: 0
   <Damage>k__BackingField: 10
+  <PowerCostPerShot>k__BackingField: 10
+  <FiringAngle>k__BackingField: 60
 --- !u!114 &1989394946819076643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,12 +99,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.47, y: 1.5, z: 2}
-  m_Center: {x: 0, y: 0.25, z: 0}
+  m_Size: {x: 1.47, y: 3.3760092, z: 2}
+  m_Center: {x: 0, y: 1.1880046, z: 0}
 --- !u!114 &7134796644409318156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,7 +498,7 @@ GameObject:
   - component: {fileID: 7678776415334488935}
   m_Layer: 0
   m_Name: Turret Targetting
-  m_TagString: Turret
+  m_TagString: TurretTargetting
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -525,6 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79cdad8342d44841aceda14b6c616cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeOffSet: 0.1
 --- !u!135 &7678776415334488935
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -544,7 +550,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 10
+  m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8096091719204026928
 GameObject:
@@ -1090,6 +1096,12 @@ GameObject:
 --- !u!4 &5766887913270634632 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: 16d680e182214dc499e37615d29c06b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 5766887913270505998}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5766887913270634636 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400002, guid: 16d680e182214dc499e37615d29c06b0,
     type: 3}
   m_PrefabInstance: {fileID: 5766887913270505998}
   m_PrefabAsset: {fileID: 0}

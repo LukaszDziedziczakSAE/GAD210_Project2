@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
 {
     [field: SerializeField] public float CurrentHealth { get; private set; }
     [field: SerializeField] public float MaxHealth { get; private set; }
+    [SerializeField] EnemyExplosion deathExplosion;
 
     public event Action OnDeath;
 
@@ -17,13 +18,14 @@ public class Health : MonoBehaviour
     }
     public void ApplyDamage(float damage)
     {
-        Debug.Log(name + " took " + damage + " damage");
+        //Debug.Log(name + " took " + damage + " damage");
         CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, MaxHealth);
 
         if(CurrentHealth == 0)
         {
+            //Debug.Log(name + " destroyed");
+            if (deathExplosion != null) Instantiate(deathExplosion, transform.position, transform.rotation);
             OnDeath?.Invoke();
-            Debug.Log(name + " destroyed");
             Destroy(gameObject);
         }
     }

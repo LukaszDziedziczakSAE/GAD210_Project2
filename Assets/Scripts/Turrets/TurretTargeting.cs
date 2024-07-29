@@ -5,6 +5,9 @@ public class TurretTargeting : MonoBehaviour
 {
     Turret turret;
     List<Ship> inRange = new List<Ship>();
+    [SerializeField] float timeOffSet = 0.05f;
+
+    private float projectilSpeed => turret.ProjectileLauncher.ProjectileSpeed;
 
     private void Awake()
     {
@@ -17,33 +20,35 @@ public class TurretTargeting : MonoBehaviour
 
         if (inRange.Count > 0)
         {
-            turret.Fire();
-
             foreach (Ship enemyShip in inRange.ToArray())
             {
                 if (enemyShip == null) inRange.Remove(enemyShip);
             }
+
+            //if (turret.ShowDebugs) Debug.Log(turret.name + ": " + HeadingToward(inRange[0].transform.position));
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        print(name + " OnTriggerEnter");
+        if (other.tag == "Turret" || other.tag == "TurretTargetting" || other.tag == "InputPlane") return;
+        if (turret.ShowDebugs) Debug.Log(turret.name + " trigger enter " + other.name);
+
 
         if (turret.State != Turret.EState.Built)
         {
-            Debug.Log(name + " is in " + turret.State + " state");
+            //if (turret.ShowDebugs) Debug.LogWarning(name + " is in " + turret.State + " state");
             return;
         }
 
         if (other.TryGetComponent<Ship>(out Ship ship))
         {
             inRange.Add(ship);
-            Debug.Log(turret.name + " has enemy ship in range");
+            if (turret.ShowDebugs) Debug.Log(turret.name + " has " + ship.name + " (ship) in range");
         }
         else
         {
-            Debug.Log(turret.name + " has " + other.name + "in range");
+            if (turret.ShowDebugs) Debug.LogWarning(turret.name + " has " + other.name + " in range");
         }
     }
 
@@ -55,5 +60,62 @@ public class TurretTargeting : MonoBehaviour
         {
             inRange.Remove(ship);
         }
+    }
+
+    public Ship Target
+    {
+        get
+        {
+            Ship closestShip = null;
+            float closestDistance = Mathf.Infinity;
+
+            foreach (Ship ship in inRange)
+            {
+                float distance = Vector3.Distance(ship.transform.position, transform.position);
+                if (distance < closestDistance)
+                {
+                    float heading = HeadingToward(ship.transform.position);
+                    if (turret.Type != Turret.EType.Omnidirectional && 
+                        heading > -turret.FiringAngle && heading < turret.FiringAngle)
+                    {
+                        closestDistance = distance;
+                        closestShip = ship;
+                    }
+                    
+                }
+            }
+
+            return closestShip;
+        }
+    }
+
+    public Vector3 TargetPosition
+    {
+        get
+        {
+            if (Target == null) return Vector3.zero;
+            float timeToShip = Vector3.Distance(transform.position, Target.transform.position) / projectilSpeed;
+            timeToShip -= timeOffSet;
+            //float timeToTarget = Vector3.Distance(transform.position, Target.ShipMovement.PositionInSeconds(timeToShip));
+            return Target.ShipMovement.PositionInSeconds(timeToShip);
+        }
+    }
+
+    public bool HasTargets => Target != null;
+
+    public float HeadingTowardTarget
+    {
+        get
+        {
+            return HeadingToward(TargetPosition);
+        }
+    }
+
+    public float HeadingToward(Vector3 position)
+    {
+        Vector3 direction = position - transform.position;
+        float angle = (Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg) - 90;
+        angle *= -1;
+        return angle - transform.position.y;
     }
 }

@@ -6,19 +6,26 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    [field: SerializeField] public bool ShowDebugs { get; private set; }
     [SerializeField] GameObject turretBase;
-    [SerializeField] GameObject pivot;
+    [SerializeField] GameObject turretHead;
+    [SerializeField] Transform pivot;
 
     public event Action OnFiring;
+    public event Action OnRecharge;
 
     [field: SerializeField] public CinemachineVirtualCamera Camera {  get; private set; }
     [field: SerializeField] public TurretTargeting Targeting { get; private set; }
     [field: SerializeField] public ProjectileLauncher ProjectileLauncher { get; private set; }
     [field: SerializeField] public TurretPower Power { get; private set; }
+    [field: SerializeField] public EState State {  get; private set; }
     [field: SerializeField] public EType Type { get; private set; }
     [field: SerializeField] public float Damage { get; private set; } = 10f;
+    [field: SerializeField] public float PowerCostPerShot { get; private set; } = 10f;
+    [field: SerializeField] public float FiringAngle { get; private set; } = 60f;
 
-    public EState State {  get; private set; }
+    Mothership mothership;
+
 
     public enum EState
     {
@@ -39,6 +46,7 @@ public class Turret : MonoBehaviour
         if (Power == null) Power = GetComponent<TurretPower>();
         if (Targeting == null) Targeting = GetComponentInChildren<TurretTargeting>();
         if (ProjectileLauncher == null) ProjectileLauncher = GetComponent<ProjectileLauncher>();
+        if (mothership == null) mothership = GetComponentInParent<Mothership>();
     }
 
     private void Start()
@@ -47,10 +55,30 @@ public class Turret : MonoBehaviour
         //else SetBuiltState();
     }
 
+    private void Update()
+    {
+        if (Targeting != null)
+        {
+            Ship target = Targeting.Target;
+            if (target != null)
+            {
+                if (ShowDebugs) Debug.Log(name + " has heading " + Targeting.HeadingTowardTarget);
+                SetPivot(Targeting.HeadingTowardTarget);
+                Fire();
+            }
+            else SetPivot(transform.eulerAngles.y);
+
+        }
+        else
+        {
+            SetPivot(transform.eulerAngles.y);
+        }
+    }
+
     public void SetUnbuiltState()
     {
         turretBase.SetActive(false);
-        pivot.SetActive(false);
+        turretHead.SetActive(false);
 
         State = EState.Unbuilt;
     }
@@ -58,7 +86,7 @@ public class Turret : MonoBehaviour
     public void SetBuildableState()
     {
         turretBase.SetActive(true);
-        pivot.SetActive(false);
+        turretHead.SetActive(false);
 
         State = EState.Buildable;
     }
@@ -66,7 +94,7 @@ public class Turret : MonoBehaviour
     public void SetBuiltState()
     {
         turretBase.SetActive(true);
-        pivot.SetActive(true);
+        turretHead.SetActive(true);
 
         State = EState.Built;
     }
@@ -85,9 +113,36 @@ public class Turret : MonoBehaviour
         if (ProjectileLauncher != null && !ProjectileLauncher.CanFire) return; 
 
         if (Power != null) Power.ConsumeShotCost();
-        if (ProjectileLauncher != null) ProjectileLauncher.Fire();
+        if (ProjectileLauncher != null) ProjectileLauncher.Fire(Targeting.TargetPosition);
 
-        Debug.Log(name + " firing");
+        if (ShowDebugs) Debug.Log(name + " firing");
         OnFiring?.Invoke();
+    }
+
+    public void Recharge()
+    {
+        if (mothership.Power.CanAfford(PowerCostPerShot, out int amount))
+        {
+            //Debug.Log(name + " can afford to recharge " + amount);
+            int amountToRecharge = Mathf.Clamp(amount, 0, Power.PowerNeeded);
+            mothership.Power.UsePower(amountToRecharge * PowerCostPerShot);
+            Power.Resupply(amountToRecharge);
+        }
+        else
+        {
+            //Debug.Log(name + " cannot afford to recharge");
+        }
+
+        OnRecharge?.Invoke();
+    }
+
+    public void SetPivot(float angle)
+    {
+        //if (Type == EType.Omnidirectional) angle += 180;
+        pivot.eulerAngles = new Vector3 (pivot.eulerAngles.x, -angle, pivot.eulerAngles.z);
+    }
+
+    public void SetPivot(Vector3 target)
+    {
     }
 }

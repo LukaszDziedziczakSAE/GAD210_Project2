@@ -26,7 +26,8 @@ public class ShipMovement : MonoBehaviour
             {
                 targetWaypoint = null;
                 OnArrived?.Invoke();
-                OnArrived = null;
+                Debug.Log(name + " Reached waypoint");
+                
                 return;
                 
             }
@@ -38,13 +39,14 @@ public class ShipMovement : MonoBehaviour
             {
                 ClearTargetPosition();
                 OnArrived?.Invoke();
-                OnArrived = null;
+                
                 return;
 
             }
             targetDirection = targetLocation - transform.position;
         }
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, rotationSpeed * Time.deltaTime, 0.0f);
+
         transform.rotation = Quaternion.LookRotation(newDirection);
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
 

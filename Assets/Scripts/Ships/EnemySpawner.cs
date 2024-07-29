@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] EnemyShip enemy;
+    [SerializeField] EnemyShip enemyPrefab;
 
     [SerializeField] float spawnTimer;
     [SerializeField] float spawnTime = 3.0f;
@@ -13,24 +13,32 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        spawnTimer = spawnTime; 
+        spawnTimer = spawnTime;
+        SpawnEnemy();
     }
 
     private void Update()
     {
-        spawnTimer -= Time.deltaTime;
+        /*spawnTimer -= Time.deltaTime;
         if(spawnTimer <= 0)
         {
-            SpawnEnemy(enemy);
+            SpawnEnemy();
             ResetTimer();
-        }
+        }*/
     }
 
-    public void SpawnEnemy(EnemyShip enemyShipPrefab)
+    public void SpawnEnemy()
     {
+        if (enemyPrefab == null)
+        {
+            Debug.LogError("Enemy prefab not set on spawner");
+            return;
+        }
+
         int randomSpawnPoint = Random.Range(0, spawner.Length);
-        Instantiate(enemyShipPrefab, spawner[randomSpawnPoint].transform.position, Quaternion.identity);
-        
+        EnemyShip enemyShip = Instantiate(enemyPrefab, spawner[randomSpawnPoint].transform.position, Quaternion.identity);
+        enemyShip.AI.SetNavSystem(Game.TransportShip.RandomPair);
+        enemyShip.name = "Enemy" + Random.Range(100, 1000);
     }
 
     void ResetTimer()

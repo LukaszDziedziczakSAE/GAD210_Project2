@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4989346513870911774}
   - component: {fileID: 5963393336146897385}
   - component: {fileID: 8782052171603070453}
+  - component: {fileID: 2695921167739762274}
   m_Layer: 7
   m_Name: Mothership
   m_TagString: Mothership
@@ -56,6 +57,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ShipMovement>k__BackingField: {fileID: 5369011025000880329}
+  <Health>k__BackingField: {fileID: 2695921167739762274}
   <ForwardStarboardWaypoint>k__BackingField: {fileID: 4147093251591965461}
   <ForwardPortWaypoint>k__BackingField: {fileID: 8492633039792184010}
   <AftStarboardWaypoint>k__BackingField: {fileID: 5493230201495736705}
@@ -194,6 +196,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9505331ea46c09e4397ffb61b6edb54b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2695921167739762274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615511301627232325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35089c00b9649745a0b0458fd3dc5ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CurrentHealth>k__BackingField: 0
+  <MaxHealth>k__BackingField: 100
 --- !u!1 &1083043908493111295
 GameObject:
   m_ObjectHideFlags: 0

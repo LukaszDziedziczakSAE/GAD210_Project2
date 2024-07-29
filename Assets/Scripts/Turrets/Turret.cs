@@ -16,8 +16,16 @@ public class Turret : MonoBehaviour
     [field: SerializeField] public ProjectileLauncher ProjectileLauncher { get; private set; }
     [field: SerializeField] public TurretPower Power { get; private set; }
     [field: SerializeField] public EType Type { get; private set; }
+    [field: SerializeField] public float Damage { get; private set; } = 10f;
 
     public EState State {  get; private set; }
+
+    public enum EState
+    {
+        Unbuilt, // turret is hidden
+        Buildable, // to show the slot can be built on in build mode
+        Built // turret is built and ready to fire
+    }
 
     public enum EType
     {
@@ -29,13 +37,6 @@ public class Turret : MonoBehaviour
     private void Start()
     {
         SetUnbuiltState();
-    }
-
-    public enum EState
-    {
-        Unbuilt, // turret is hidden
-        Buildable, // to show the slot can be built on in build mode
-        Built // turret is built and ready to fire
     }
 
     public void SetUnbuiltState()

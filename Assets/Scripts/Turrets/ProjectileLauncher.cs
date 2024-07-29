@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ProjectileLauncher : MonoBehaviour
 {
+    Turret turret;
     [SerializeField] Projectile projectilePrefab;
     [SerializeField] Transform spawnPoint;
     [SerializeField] float fireRate = 0.5f;
@@ -11,11 +12,17 @@ public class ProjectileLauncher : MonoBehaviour
     float lastFireTime = Mathf.NegativeInfinity;
     float timeSinceLastFire => Time.time - lastFireTime;
 
+    private void Awake()
+    {
+        turret = GetComponent<Turret>();
+    }
+
     public void Fire()
     {
         if (timeSinceLastFire < fireRate) return;
 
-        Instantiate(projectilePrefab, spawnPoint.position, spawnPoint.rotation);
+        Projectile projectile = Instantiate(projectilePrefab, spawnPoint.position, spawnPoint.rotation);
+        projectile.SetDamage(turret.Damage);
         lastFireTime = Time.time;
         //Debug.Log("Firing");
     }

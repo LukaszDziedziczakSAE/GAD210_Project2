@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] float speed = 10;
     [SerializeField] float timeToLive = 50;
+    [SerializeField] float damage;
 
     float birthTime;
     float timeAlive => Time.time - birthTime;

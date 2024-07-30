@@ -33,6 +33,16 @@ PrefabInstance:
       propertyPath: <State>k__BackingField
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3007576580211418524, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: <Damage>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007576580211418524, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: <IsEnemy>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5987365350132965947, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
       propertyPath: m_TagString

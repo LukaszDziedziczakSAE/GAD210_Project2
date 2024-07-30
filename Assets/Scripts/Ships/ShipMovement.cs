@@ -12,6 +12,7 @@ public class ShipMovement : MonoBehaviour
 
     public event Action OnArrived;
 
+    public bool IsMoving => targetLocation != Vector3.zero || targetWaypoint != null;
 
 
     private void Update()
@@ -89,6 +90,7 @@ public class ShipMovement : MonoBehaviour
 
     public Vector3 PositionInSeconds(float seconds)
     {
+        if (!IsMoving) return transform.position;
         return transform.position + (transform.forward * moveSpeed * seconds);
     }
 }

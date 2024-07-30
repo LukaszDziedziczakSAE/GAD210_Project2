@@ -9,7 +9,13 @@ public class Health : MonoBehaviour
     [field: SerializeField] public float MaxHealth { get; private set; }
     [SerializeField] EnemyExplosion deathExplosion;
 
-    public event Action OnDeath;
+    public static event Action<Ship> OnDeath;
+    private Ship ship;
+
+    private void Awake()
+    {
+        ship = GetComponent<Ship>();
+    }
 
     private void Start()
     {
@@ -25,7 +31,7 @@ public class Health : MonoBehaviour
         {
             //Debug.Log(name + " destroyed");
             if (deathExplosion != null) Instantiate(deathExplosion, transform.position, transform.rotation);
-            OnDeath?.Invoke();
+            OnDeath?.Invoke(ship);
             Destroy(gameObject);
         }
     }

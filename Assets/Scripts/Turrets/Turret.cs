@@ -25,6 +25,7 @@ public class Turret : MonoBehaviour
     [field: SerializeField] public float FiringAngle { get; private set; } = 60f;
 
     Mothership mothership;
+    [field: SerializeField] public bool IsEnemy { get; private set; }
 
 
     public enum EState
@@ -53,25 +54,30 @@ public class Turret : MonoBehaviour
     {
         if (Type != EType.Omnidirectional) SetUnbuiltState();
         //else SetBuiltState();
+
+        if (Targeting == null) Debug.LogError(name + " missing Targeting referance");
     }
 
     private void Update()
     {
+        //if (ShowDebugs) print(name + " update");
+
         if (Targeting != null)
         {
             Ship target = Targeting.Target;
+            if (ShowDebugs) Debug.Log(name + " target = " + (target != null).ToString() + ", HasTargetInRange = " + Targeting.HasTargetInRange);
             if (target != null)
             {
                 if (ShowDebugs) Debug.Log(name + " has heading " + Targeting.HeadingTowardTarget);
                 SetPivot(Targeting.HeadingTowardTarget);
                 Fire();
             }
+            else if (Targeting.HasTargetInRange && target == null)
+            {
+                Debug.LogWarning(name + " targetting failur");
+            }
             else SetPivot(transform.eulerAngles.y);
 
-        }
-        else
-        {
-            SetPivot(transform.eulerAngles.y);
         }
     }
 
@@ -109,11 +115,13 @@ public class Turret : MonoBehaviour
 
     public void Fire()
     {
+        if (ShowDebugs) Debug.Log(name + " starting firing seqence");
         if (Power != null && !Power.CanFire) return;
         if (ProjectileLauncher != null && !ProjectileLauncher.CanFire) return; 
 
         if (Power != null) Power.ConsumeShotCost();
         if (ProjectileLauncher != null) ProjectileLauncher.Fire(Targeting.TargetPosition);
+        else Debug.LogError(name + " missing ProjectileLauncher referance");
 
         if (ShowDebugs) Debug.Log(name + " firing");
         OnFiring?.Invoke();
@@ -138,8 +146,8 @@ public class Turret : MonoBehaviour
 
     public void SetPivot(float angle)
     {
-        //if (Type == EType.Omnidirectional) angle += 180;
-        pivot.eulerAngles = new Vector3 (pivot.eulerAngles.x, -angle, pivot.eulerAngles.z);
+        if (Type != EType.Port) angle += 180;
+        if (pivot != null) pivot.eulerAngles = new Vector3 (pivot.eulerAngles.x, angle, pivot.eulerAngles.z);
     }
 
     public void SetPivot(Vector3 target)

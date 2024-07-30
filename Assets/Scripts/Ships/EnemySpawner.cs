@@ -5,26 +5,74 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] EnemyShip enemyPrefab;
-
+    [SerializeField] float height;
+    [SerializeField] float width;
     [SerializeField] float spawnTimer;
     [SerializeField] float spawnTime = 3.0f;
-    [SerializeField] Transform[] spawner;
+    [SerializeField] float waveCooldown;
+    [SerializeField] Wave[] waves;
 
+    int waveIndex;
+    float waveTimer;
+    Wave currentWave => waves[waveIndex];
+
+    public enum EDirection
+    {
+        Top,
+        Bottom,
+        Left,
+        Right
+    }
 
     private void Start()
     {
         spawnTimer = spawnTime;
-        //SpawnEnemy();
+        Health.OnDeath += OnShipDeath;
+    }
+
+    private void OnDisable()
+    {
+        Health.OnDeath -= OnShipDeath;
     }
 
     private void Update()
     {
         spawnTimer -= Time.deltaTime;
-        if (spawnTimer <= 0)
+        transform.position = new Vector3(Game.Mothership.transform.position.x, transform.position.y, Game.Mothership.transform.position.z);
+
+        if (waveTimer > 0)
         {
-            SpawnEnemy();
-            ResetTimer();
+            waveTimer -= Time.deltaTime;
+            return;
         }
+
+        if (waveIndex >= waves.Length) return;
+
+        if (currentWave.SpawnedEnemies < currentWave.EnemiesToSpawn)
+        {
+            if (spawnTimer <= 0)
+            {
+                SpawnEnemy();
+                currentWave.SpawnedEnemies++;
+                ResetTimer();
+            }
+        }
+
+        if (currentWave.EnemiesRemaining == 0)
+        {
+            waveIndex++;
+            waveTimer = waveCooldown;
+        }
+    }
+
+    [System.Serializable]
+    public class Wave
+    {
+        public int EnemiesToSpawn;
+        public int SpawnedEnemies;
+        public int DestoryedEnemies;
+
+        public int EnemiesRemaining => EnemiesToSpawn - DestoryedEnemies;
     }
 
     public void SpawnEnemy()
@@ -35,8 +83,7 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
-        int randomSpawnPoint = Random.Range(0, spawner.Length);
-        EnemyShip enemyShip = Instantiate(enemyPrefab, spawner[randomSpawnPoint].transform.position, Quaternion.identity);
+        EnemyShip enemyShip = Instantiate(enemyPrefab, spawnLocation, Quaternion.identity);
         enemyShip.AI.SetNavSystem(Game.Mothership.RandomPair);
         enemyShip.name = "Enemy" + Random.Range(100, 1000);
     }
@@ -46,4 +93,45 @@ public class EnemySpawner : MonoBehaviour
         spawnTimer = spawnTime;
     }
 
+    private Vector3 spawnLocation
+    {
+        get
+        {
+            EDirection direction = (EDirection)Random.Range(0, 4);
+
+            switch (direction)
+            {
+                case EDirection.Top:
+                    float xTop = Random.Range(transform.position.x - width, transform.position.x + width);
+                    float zTop = height;
+                    return new Vector3(xTop, 0, zTop);
+
+                case EDirection.Bottom:
+                    float xBottom = Random.Range(transform.position.x - width, transform.position.x + width);
+                    float zBottom = -height;
+                    return new Vector3(xBottom, 0, zBottom);
+
+                case EDirection.Left:
+                    float xLeft = -width;
+                    float zLeft = Random.Range(transform.position.x - height, transform.position.x + height);
+                    return new Vector3(xLeft, 0, zLeft);
+
+                case EDirection.Right:
+                    float xRight = width;
+                    float zRight = Random.Range(transform.position.x - height, transform.position.x + height);
+                    return new Vector3(xRight, 0, zRight);
+
+                default:
+                    return Vector3.zero;
+            }
+        }
+    }
+
+    private void OnShipDeath(Ship ship)
+    {
+        if (ship.TryGetComponent<EnemyShip>(out EnemyShip enemyShip))
+        {
+            currentWave.DestoryedEnemies++;
+        }
+    }
 }

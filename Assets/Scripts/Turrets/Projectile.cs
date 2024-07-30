@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour
     float birthTime;
     float timeAlive => Time.time - birthTime;
     public float Speed => speed;
+    public bool IsEnemy { get; private set; }
 
 
     private void Start()
@@ -35,7 +36,9 @@ public class Projectile : MonoBehaviour
         if (other.TryGetComponent<Ship>(out Ship ship))
         {
             if (owner == ship) return;
-            ship.Health.ApplyDamage(damage);
+            EnemyShip enemyShip = ship.GetComponent<EnemyShip>();
+            if (!IsEnemy && enemyShip != null) ship.Health.ApplyDamage(damage);
+            else if (IsEnemy && enemyShip == null) ship.Health.ApplyDamage(damage);
 
             Instantiate(impactPrefab, transform.position, transform.rotation);
 
@@ -52,5 +55,6 @@ public class Projectile : MonoBehaviour
         //print(name + " initilized");
 
         transform.LookAt(target);
+        if (owner.GetComponent<EnemyShip>() != null) IsEnemy = true;
     }
 }

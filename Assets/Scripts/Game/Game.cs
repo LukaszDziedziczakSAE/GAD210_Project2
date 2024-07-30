@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
@@ -19,5 +20,17 @@ public class Game : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(this.gameObject);
+
+        transportShip.ShipMovement.OnArrived += ReturnToStartScreen;
+    }
+
+    private void OnDisable()
+    {
+        transportShip.ShipMovement.OnArrived -= ReturnToStartScreen;
+    }
+
+    public static void ReturnToStartScreen()
+    {
+        SceneManager.LoadScene(0);
     }
 }

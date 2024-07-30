@@ -37,7 +37,12 @@ public class Health : MonoBehaviour
             if (deathExplosion != null) Instantiate(deathExplosion, transform.position, transform.rotation);
             OnDeath?.Invoke(ship);
             OnThisDeath?.Invoke();
-            Destroy(gameObject);
+
+            if (ship.Type != Ship.EType.Enemy)
+            {
+                Game.ReturnToStartScreen();
+            }
+            else Destroy(gameObject);
         }
     }
 

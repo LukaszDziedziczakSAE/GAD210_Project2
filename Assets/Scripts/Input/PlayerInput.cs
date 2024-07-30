@@ -20,6 +20,14 @@ public class PlayerInput : MonoBehaviour
     {
         Game.Input.LeftClickPress += OnLeftClickPress;
         Game.Input.LeftClickRelease += OnLeftClickRelease;
+        Game.Input.PauseMenuPress += OnPauseMenuPress;
+    }
+
+    private void OnDisable()
+    {
+        Game.Input.LeftClickPress -= OnLeftClickPress;
+        Game.Input.LeftClickRelease -= OnLeftClickRelease;
+        Game.Input.PauseMenuPress -= OnPauseMenuPress;
     }
 
     private void Update()
@@ -92,5 +100,10 @@ public class PlayerInput : MonoBehaviour
             Debug.LogError("Raycast Miss");
             return Vector3.zero;
         }
+    }
+
+    private void OnPauseMenuPress()
+    {
+        Game.ReturnToStartScreen();
     }
 }

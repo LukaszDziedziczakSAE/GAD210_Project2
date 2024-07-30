@@ -46,9 +46,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
+  - {fileID: 8300000, guid: f8f9b5a5c7b51ee4d8a59ce7c6fec833, type: 3}
+  - {fileID: 8300000, guid: 97365ba8f6d03a749b849b8330cbd62a, type: 3}
+  - {fileID: 8300000, guid: 394e76852112270489343ab9e511909a, type: 3}
+  - {fileID: 8300000, guid: 4b902f62d6f1e4146b61d45b088712a0, type: 3}
   - {fileID: 8300000, guid: d4f42859b82be204f8f033ea4904ea9f, type: 3}
   - {fileID: 8300000, guid: 0019f2b442ca01342a37bf7b4be4baac, type: 3}
   - {fileID: 8300000, guid: b203e6b7935b66445901f67bee07c8fd, type: 3}
+  - {fileID: 8300000, guid: e64fd3fe184a2494eaf805ecbb279609, type: 3}
 --- !u!82 &22282837278232199
 AudioSource:
   m_ObjectHideFlags: 0

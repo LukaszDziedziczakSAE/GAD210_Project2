@@ -12,6 +12,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action LeftClickRelease;
     public bool LeftClickDown {  get; private set; }
     public Vector2 MousePosition { get; private set; }
+    public event Action PauseMenuPress;
 
     private void Awake()
     {
@@ -37,5 +38,10 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public void OnMousePosition(InputAction.CallbackContext context)
     {
         MousePosition = context.ReadValue<Vector2>();
+    }
+
+    public void OnPauseMenu(InputAction.CallbackContext context)
+    {
+        if (context.performed) PauseMenuPress?.Invoke();
     }
 }

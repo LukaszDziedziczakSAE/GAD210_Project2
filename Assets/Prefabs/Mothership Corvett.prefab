@@ -824,6 +824,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicClips:
+  - {fileID: 8300000, guid: 2162f0f4281aa3943b7812a6f09b7df0, type: 3}
+  - {fileID: 8300000, guid: e5db4987726820248b40193944d39c7e, type: 3}
+  - {fileID: 8300000, guid: d3c5dfeef3a5e494bab189cf9aefbf46, type: 3}
   - {fileID: 8300000, guid: a77470e4fd7d58d47827a5c955b526c9, type: 3}
   - {fileID: 8300000, guid: 455d8b3686c2c0f4ea7022a48b3dcbfb, type: 3}
 --- !u!1001 &1591071640130691645

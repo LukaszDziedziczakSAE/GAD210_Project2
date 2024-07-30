@@ -40,4 +40,9 @@ public class TurretPower : MonoBehaviour
     }
 
     public int PowerNeeded => MaxCapacity - CurrentPower;
+
+    public void SetMaxCapacity(int newCap)
+    {
+        MaxCapacity = newCap;
+    }
 }

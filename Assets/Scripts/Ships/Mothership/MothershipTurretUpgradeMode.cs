@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MothershipTurretUpgradeMode : MonoBehaviour
 {
-    Turret turret;
+    public Turret SelectedTurret { get; private set; }
 
     public void EnterTurretUpgradeMode(Turret turret)
     {
-        this.turret = turret;
+        this.SelectedTurret = turret;
         Game.CameraController.SwitchToTurretCamera(turret.Camera);
         UI.SwitchToTurretView();
     }
@@ -16,7 +16,7 @@ public class MothershipTurretUpgradeMode : MonoBehaviour
     public void ExitTurretUpgradeMode()
     {
         Game.CameraController.SwitchToMothershipCamera();
-        turret = null;
+        SelectedTurret = null;
         UI.SwitchToMothershipView();
     }
 }

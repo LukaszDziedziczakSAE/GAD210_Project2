@@ -61,6 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ShipMovement>k__BackingField: {fileID: 5369011025000880329}
   <Health>k__BackingField: {fileID: 8550814545382188460}
+  <Type>k__BackingField: 3
   <ForwardStarboardWaypoint>k__BackingField: {fileID: 4147093251591965461}
   <ForwardPortWaypoint>k__BackingField: {fileID: 8492633039792184010}
   <AftStarboardWaypoint>k__BackingField: {fileID: 5493230201495736705}
@@ -213,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CurrentHealth>k__BackingField: 0
-  <MaxHealth>k__BackingField: 1000
+  <MaxHealth>k__BackingField: 5000
   deathExplosion: {fileID: 0}
 --- !u!54 &3159150469921193060
 Rigidbody:
@@ -1050,7 +1051,7 @@ PrefabInstance:
     - target: {fileID: 3007576580211418524, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
       propertyPath: <ShowDebugs>k__BackingField
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7865817132464616656, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
@@ -1498,7 +1499,7 @@ PrefabInstance:
     - target: {fileID: 3007576580211418524, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
       propertyPath: <ShowDebugs>k__BackingField
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7865817132464616656, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}

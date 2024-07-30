@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float spawnTime = 3.0f;
     [SerializeField] float waveCooldown;
     [SerializeField] Wave[] waves;
+    [SerializeField] CapitalShip targetShip;
 
     int waveIndex;
     float waveTimer;
@@ -84,7 +85,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
         EnemyShip enemyShip = Instantiate(enemyPrefab, spawnLocation, Quaternion.identity);
-        enemyShip.AI.SetNavSystem(Game.Mothership.RandomPair);
+        if (Game.Mothership != null) enemyShip.AI.SetNavSystem(targetShip.RandomPair);
         enemyShip.name = "Enemy" + Random.Range(100, 1000);
     }
 

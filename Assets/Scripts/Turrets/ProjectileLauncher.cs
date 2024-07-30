@@ -32,4 +32,9 @@ public class ProjectileLauncher : MonoBehaviour
     }
 
     public bool CanFire => timeSinceLastFire >= fireRate;
+
+    public void SetFireRate(float newRate)
+    {
+        fireRate = newRate;
+    }
 }

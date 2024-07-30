@@ -11,9 +11,17 @@ public class ShipMovement : MonoBehaviour
     [SerializeField] Vector3 targetLocation;
 
     public event Action OnArrived;
-
     public bool IsMoving => targetLocation != Vector3.zero || targetWaypoint != null;
+    private float startDistance;
 
+    private void Start()
+    {
+        if (targetWaypoint != null)
+        {
+            startDistance = Vector3.Distance(transform.position, targetWaypoint.transform.position);
+        }
+
+    }
 
     private void Update()
     {
@@ -35,6 +43,7 @@ public class ShipMovement : MonoBehaviour
     public void SetTargetWaypoint(Waypoint waypoint)
     {
         targetWaypoint = waypoint;
+        startDistance = Vector3.Distance(transform.position, waypoint.transform.position);
     }
 
     public void ClearTargetWaypoint()
@@ -45,6 +54,7 @@ public class ShipMovement : MonoBehaviour
     public void SetTargetPosition(Vector3 target)
     {
         targetLocation = target;
+        startDistance = Vector3.Distance(transform.position, target);
     }
 
     public void ClearTargetPosition()
@@ -92,5 +102,14 @@ public class ShipMovement : MonoBehaviour
     {
         if (!IsMoving) return transform.position;
         return transform.position + (transform.forward * moveSpeed * seconds);
+    }
+
+    public float ProgressToWaypoint
+    {
+        get
+        {
+            float currentDistance = Vector3.Distance(transform.position, targetWaypoint.transform.position);
+            return 1 - (currentDistance / startDistance);
+        }
     }
 }

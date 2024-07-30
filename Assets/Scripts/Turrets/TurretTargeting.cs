@@ -6,6 +6,7 @@ public class TurretTargeting : MonoBehaviour
     Turret turret;
     [SerializeField] List<Ship> inRange = new List<Ship>();
     [SerializeField] float timeOffSet = 0.05f;
+    [SerializeField] SphereCollider sphereCollider;
 
     private float projectilSpeed => turret.ProjectileLauncher.ProjectileSpeed;
     public bool HasTargetInRange => inRange.Count > 0;
@@ -96,8 +97,8 @@ public class TurretTargeting : MonoBehaviour
                 if (distance < closestDistance)
                 {
                     float heading = HeadingToward(ship.transform.position);
-                    if (turret.Type != Turret.EType.Omnidirectional && 
-                        heading > -turret.FiringAngle && heading < turret.FiringAngle)
+                    if (turret.Type != Turret.EType.Omnidirectional /*&& 
+                        heading > -turret.FiringAngle && heading < turret.FiringAngle*/)
                     {
                         closestDistance = distance;
                         closestShip = ship;
@@ -144,5 +145,13 @@ public class TurretTargeting : MonoBehaviour
         angle *= -1;
         if (turret.Type == Turret.EType.Starboard) angle -= 180;
         return angle - transform.position.y;
+    }
+
+    public void SetRange(float value)
+    {
+        if (sphereCollider != null)
+        {
+            sphereCollider.radius = value;
+        }
     }
 }

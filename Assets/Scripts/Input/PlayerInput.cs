@@ -24,7 +24,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        if (!mothership.BuildMode.InBuildMode && Game.Input.LeftClickDown)
+        if (!mothership.BuildMode.InBuildMode && Game.Input.LeftClickDown && !UI.MouseOverUI)
         {
             mothership.ShipMovement.SetTargetPosition(inputPlanePos);
         }
@@ -32,6 +32,8 @@ public class PlayerInput : MonoBehaviour
 
     private void OnLeftClickPress()
     {
+        if (UI.MouseOverUI) return;
+
         if (Game.CameraController.InTurretCameraMode)
         {
             Ray ray = Camera.main.ScreenPointToRay(Game.Input.MousePosition);

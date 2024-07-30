@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     [SerializeField] EnemyExplosion deathExplosion;
 
     public static event Action<Ship> OnDeath;
+    public event Action OnThisDeath;
     private Ship ship;
 
     private void Awake()
@@ -27,11 +28,15 @@ public class Health : MonoBehaviour
         //Debug.Log(name + " took " + damage + " damage");
         CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, MaxHealth);
 
-        if(CurrentHealth == 0)
+        if (ship.Type == Ship.EType.Mothership) UI.UpdateMothershipHealthIndicator();
+        if (ship.Type == Ship.EType.Transport) UI.UpdateTransportShipHealthIndicator();
+
+        if (CurrentHealth == 0)
         {
             //Debug.Log(name + " destroyed");
             if (deathExplosion != null) Instantiate(deathExplosion, transform.position, transform.rotation);
             OnDeath?.Invoke(ship);
+            OnThisDeath?.Invoke();
             Destroy(gameObject);
         }
     }
@@ -41,5 +46,7 @@ public class Health : MonoBehaviour
         CurrentHealth += RestoreAmount;
         CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
     }
+
+    public float Percentage => CurrentHealth / MaxHealth;
     
 }

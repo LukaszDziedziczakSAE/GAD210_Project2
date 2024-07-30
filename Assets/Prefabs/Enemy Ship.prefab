@@ -99,8 +99,9 @@ GameObject:
   - component: {fileID: 4711632686451727126}
   - component: {fileID: 5367877092660234548}
   - component: {fileID: 6391627456304098495}
+  - component: {fileID: 6159895936877863023}
   m_Layer: 9
-  m_Name: Enemy
+  m_Name: Enemy Ship
   m_TagString: Enemy Ship
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  rotationSpeed: 20
+  rotationSpeed: 10
   targetProximity: 0.5
   targetWaypoint: {fileID: 0}
   targetLocation: {x: 0, y: 0, z: 0}
@@ -184,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ShipMovement>k__BackingField: {fileID: 3053452799239542890}
   <Health>k__BackingField: {fileID: 6391627456304098495}
+  <Type>k__BackingField: 1
   <AI>k__BackingField: {fileID: 4711632686451727126}
   <Turret>k__BackingField: {fileID: 7628269920330933888}
 --- !u!114 &4711632686451727126
@@ -241,6 +243,20 @@ MonoBehaviour:
   <MaxHealth>k__BackingField: 30
   deathExplosion: {fileID: 6175605146602334366, guid: e6a614061edcb7e46ba07b66c83bef5e,
     type: 3}
+--- !u!114 &6159895936877863023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944393113334028955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f371882fd049f974b852a350e23cc3db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <RewardOnKill>k__BackingField: 10
+  health: {fileID: 0}
 --- !u!1001 &2772347598294397032
 PrefabInstance:
   m_ObjectHideFlags: 0

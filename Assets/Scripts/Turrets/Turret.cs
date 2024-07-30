@@ -10,6 +10,7 @@ public class Turret : MonoBehaviour
     [SerializeField] GameObject turretBase;
     [SerializeField] GameObject turretHead;
     [SerializeField] Transform pivot;
+    [SerializeField] AudioSource audioSource;
 
     public event Action OnFiring;
     public event Action OnRecharge;
@@ -26,6 +27,7 @@ public class Turret : MonoBehaviour
 
     Mothership mothership;
     [field: SerializeField] public bool IsEnemy { get; private set; }
+    [field: SerializeField] public Upgrade_Base[] Upgrades { get; private set; }
 
 
     public enum EState
@@ -48,6 +50,7 @@ public class Turret : MonoBehaviour
         if (Targeting == null) Targeting = GetComponentInChildren<TurretTargeting>();
         if (ProjectileLauncher == null) ProjectileLauncher = GetComponent<ProjectileLauncher>();
         if (mothership == null) mothership = GetComponentInParent<Mothership>();
+        Upgrades = GetComponents<Upgrade_Base>();
     }
 
     private void Start()
@@ -123,6 +126,11 @@ public class Turret : MonoBehaviour
         if (ProjectileLauncher != null) ProjectileLauncher.Fire(Targeting.TargetPosition);
         else Debug.LogError(name + " missing ProjectileLauncher referance");
 
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
+
         if (ShowDebugs) Debug.Log(name + " firing");
         OnFiring?.Invoke();
     }
@@ -152,5 +160,10 @@ public class Turret : MonoBehaviour
 
     public void SetPivot(Vector3 target)
     {
+    }
+
+    public void SetFirepower(float value)
+    {
+        Damage = value;
     }
 }

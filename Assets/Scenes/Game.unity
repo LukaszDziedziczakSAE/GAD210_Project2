@@ -803,16 +803,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mothership Corvett
       objectReference: {fileID: 0}
-    - target: {fileID: 1300149074335226751, guid: 8e40e072d60acc345921609c4e477027,
-        type: 3}
-      propertyPath: <ShowDebugs>k__BackingField
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1863296318543332193, guid: 8e40e072d60acc345921609c4e477027,
-        type: 3}
-      propertyPath: <ShowDebugs>k__BackingField
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2014418402838462508, guid: 8e40e072d60acc345921609c4e477027,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -862,11 +852,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8550814545382188460, guid: 8e40e072d60acc345921609c4e477027,
-        type: 3}
-      propertyPath: <MaxHealth>k__BackingField
-      value: 5000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -994,48 +979,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2120807908011611987, guid: eb3be9ab45be1ee41b0db319d99b331b,
         type: 3}
-      propertyPath: width
-      value: 260
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120807908011611987, guid: eb3be9ab45be1ee41b0db319d99b331b,
-        type: 3}
-      propertyPath: height
-      value: 260
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120807908011611987, guid: eb3be9ab45be1ee41b0db319d99b331b,
-        type: 3}
-      propertyPath: spawnTime
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120807908011611987, guid: eb3be9ab45be1ee41b0db319d99b331b,
-        type: 3}
-      propertyPath: waveCooldown
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120807908011611987, guid: eb3be9ab45be1ee41b0db319d99b331b,
-        type: 3}
-      propertyPath: waves.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120807908011611987, guid: eb3be9ab45be1ee41b0db319d99b331b,
-        type: 3}
-      propertyPath: waves.Array.data[0].EnemiesToSpawn
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120807908011611987, guid: eb3be9ab45be1ee41b0db319d99b331b,
-        type: 3}
-      propertyPath: waves.Array.data[1].EnemiesToSpawn
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: targetShip
+      value: 
+      objectReference: {fileID: 1856546072}
     - target: {fileID: 5203822937371942430, guid: eb3be9ab45be1ee41b0db319d99b331b,
         type: 3}
       propertyPath: m_Name
       value: EnemySpawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 5203822937371942430, guid: eb3be9ab45be1ee41b0db319d99b331b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1485,6 +1435,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3020681620002095017, guid: 41a87cfc9c0970c4ba3737d93f7bd00e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3187966553655314037, guid: 41a87cfc9c0970c4ba3737d93f7bd00e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3187966553655314037, guid: 41a87cfc9c0970c4ba3737d93f7bd00e,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3187966553655314037, guid: 41a87cfc9c0970c4ba3737d93f7bd00e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3187966553655314037, guid: 41a87cfc9c0970c4ba3737d93f7bd00e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0

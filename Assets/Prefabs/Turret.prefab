@@ -13,6 +13,10 @@ GameObject:
   - component: {fileID: 1989394946819076643}
   - component: {fileID: 1388645921746120205}
   - component: {fileID: 7134796644409318156}
+  - component: {fileID: 5690125661305294921}
+  - component: {fileID: 7501949689147269374}
+  - component: {fileID: 3050300759942938856}
+  - component: {fileID: 641950954678570557}
   m_Layer: 8
   m_Name: Turret
   m_TagString: Turret
@@ -41,6 +45,7 @@ Transform:
   - {fileID: 2123372540102149040}
   - {fileID: 5766887913270634638}
   - {fileID: 1823067271774900870}
+  - {fileID: 746611274670036434}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3007576580211418524
@@ -59,6 +64,7 @@ MonoBehaviour:
   turretBase: {fileID: 1546410513415753046}
   turretHead: {fileID: 5766887913270473902}
   pivot: {fileID: 5766887913270634636}
+  audioSource: {fileID: 7654996794823352164}
   <Camera>k__BackingField: {fileID: 5171796277933835934}
   <Targeting>k__BackingField: {fileID: 2619785108284601967}
   <ProjectileLauncher>k__BackingField: {fileID: 1989394946819076643}
@@ -68,6 +74,8 @@ MonoBehaviour:
   <Damage>k__BackingField: 10
   <PowerCostPerShot>k__BackingField: 10
   <FiringAngle>k__BackingField: 60
+  <IsEnemy>k__BackingField: 0
+  <Upgrades>k__BackingField: []
 --- !u!114 &1989394946819076643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +128,111 @@ MonoBehaviour:
   <MaxCapacity>k__BackingField: 10
   <CurrentPower>k__BackingField: 0
   <ShotCost>k__BackingField: 1
+--- !u!114 &5690125661305294921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378189019127912877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49cee705a5a24e42858c4c1893b1855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <UpgradeName>k__BackingField: Firepower
+  <Level>k__BackingField: 1
+  <Values>k__BackingField:
+  - 10
+  - 15
+  - 20
+  - 25
+  - 30
+  - 35
+  - 40
+  - 45
+  - 50
+  - 55
+  <Costs>k__BackingField: 64000000640000006400000064000000640000006400000064000000640000006400000064000000
+--- !u!114 &7501949689147269374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378189019127912877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52cafe687ec404419aa87176a7c00f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <UpgradeName>k__BackingField: Range
+  <Level>k__BackingField: 1
+  <Values>k__BackingField:
+  - 20
+  - 22
+  - 24
+  - 26
+  - 28
+  - 30
+  - 32
+  - 34
+  - 36
+  - 38
+  <Costs>k__BackingField: 64000000640000006400000064000000640000006400000064000000640000006400000064000000
+--- !u!114 &3050300759942938856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378189019127912877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ae95d44954a26e4b8852513addf94a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <UpgradeName>k__BackingField: Fire Rate
+  <Level>k__BackingField: 1
+  <Values>k__BackingField:
+  - 1
+  - 0.9
+  - 0.8
+  - 0.7
+  - 0.6
+  - 0.5
+  - 0.4
+  - 0.3
+  - 0.2
+  - 0.15
+  <Costs>k__BackingField: 64000000640000006400000064000000640000006400000064000000640000006400000064000000
+--- !u!114 &641950954678570557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378189019127912877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2ec9f1b19cc89945939587839385d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <UpgradeName>k__BackingField: Capacity
+  <Level>k__BackingField: 1
+  <Values>k__BackingField:
+  - 10
+  - 12
+  - 14
+  - 16
+  - 18
+  - 20
+  - 22
+  - 24
+  - 26
+  - 28
+  <Costs>k__BackingField: 64000000640000006400000064000000640000006400000064000000640000006400000064000000
+  turret: {fileID: 3007576580211418524}
 --- !u!1 &676582594508334608
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,7 +643,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79cdad8342d44841aceda14b6c616cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inRange: []
   timeOffSet: 0.1
+  sphereCollider: {fileID: 0}
 --- !u!135 &7678776415334488935
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -635,6 +750,134 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8279730367521903801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 746611274670036434}
+  - component: {fileID: 7654996794823352164}
+  m_Layer: 8
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &746611274670036434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8279730367521903801}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.551, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7865817132464616656}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &7654996794823352164
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8279730367521903801}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 306d19a475ff68644aad92014b6e9586, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 250
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1546410513415719926
 PrefabInstance:
   m_ObjectHideFlags: 0

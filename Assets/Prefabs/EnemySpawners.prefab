@@ -55,91 +55,91 @@ MonoBehaviour:
   - EnemiesToSpawn: 10
     SpawnedEnemies: 0
     DestoryedEnemies: 0
-  - EnemiesToSpawn: 10
+  - EnemiesToSpawn: 12
     SpawnedEnemies: 0
     DestoryedEnemies: 0
-  - EnemiesToSpawn: 10
+  - EnemiesToSpawn: 14
     SpawnedEnemies: 0
     DestoryedEnemies: 0
-  - EnemiesToSpawn: 10
+  - EnemiesToSpawn: 16
     SpawnedEnemies: 0
     DestoryedEnemies: 0
-  - EnemiesToSpawn: 10
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 10
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 10
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 10
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 10
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 10
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 15
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 15
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 15
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 15
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 15
+  - EnemiesToSpawn: 18
     SpawnedEnemies: 0
     DestoryedEnemies: 0
   - EnemiesToSpawn: 20
     SpawnedEnemies: 0
     DestoryedEnemies: 0
-  - EnemiesToSpawn: 20
+  - EnemiesToSpawn: 22
     SpawnedEnemies: 0
     DestoryedEnemies: 0
-  - EnemiesToSpawn: 20
+  - EnemiesToSpawn: 24
     SpawnedEnemies: 0
     DestoryedEnemies: 0
-  - EnemiesToSpawn: 20
+  - EnemiesToSpawn: 26
     SpawnedEnemies: 0
     DestoryedEnemies: 0
-  - EnemiesToSpawn: 20
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 25
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 25
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 25
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 25
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 25
+  - EnemiesToSpawn: 28
     SpawnedEnemies: 0
     DestoryedEnemies: 0
   - EnemiesToSpawn: 30
     SpawnedEnemies: 0
     DestoryedEnemies: 0
-  - EnemiesToSpawn: 30
+  - EnemiesToSpawn: 31
     SpawnedEnemies: 0
     DestoryedEnemies: 0
-  - EnemiesToSpawn: 30
+  - EnemiesToSpawn: 32
     SpawnedEnemies: 0
     DestoryedEnemies: 0
-  - EnemiesToSpawn: 30
+  - EnemiesToSpawn: 33
     SpawnedEnemies: 0
     DestoryedEnemies: 0
-  - EnemiesToSpawn: 30
+  - EnemiesToSpawn: 34
+    SpawnedEnemies: 0
+    DestoryedEnemies: 0
+  - EnemiesToSpawn: 35
+    SpawnedEnemies: 0
+    DestoryedEnemies: 0
+  - EnemiesToSpawn: 36
+    SpawnedEnemies: 0
+    DestoryedEnemies: 0
+  - EnemiesToSpawn: 37
+    SpawnedEnemies: 0
+    DestoryedEnemies: 0
+  - EnemiesToSpawn: 38
+    SpawnedEnemies: 0
+    DestoryedEnemies: 0
+  - EnemiesToSpawn: 39
+    SpawnedEnemies: 0
+    DestoryedEnemies: 0
+  - EnemiesToSpawn: 40
+    SpawnedEnemies: 0
+    DestoryedEnemies: 0
+  - EnemiesToSpawn: 40
+    SpawnedEnemies: 0
+    DestoryedEnemies: 0
+  - EnemiesToSpawn: 40
+    SpawnedEnemies: 0
+    DestoryedEnemies: 0
+  - EnemiesToSpawn: 40
+    SpawnedEnemies: 0
+    DestoryedEnemies: 0
+  - EnemiesToSpawn: 40
+    SpawnedEnemies: 0
+    DestoryedEnemies: 0
+  - EnemiesToSpawn: 40
+    SpawnedEnemies: 0
+    DestoryedEnemies: 0
+  - EnemiesToSpawn: 40
+    SpawnedEnemies: 0
+    DestoryedEnemies: 0
+  - EnemiesToSpawn: 40
+    SpawnedEnemies: 0
+    DestoryedEnemies: 0
+  - EnemiesToSpawn: 40
+    SpawnedEnemies: 0
+    DestoryedEnemies: 0
+  - EnemiesToSpawn: 40
     SpawnedEnemies: 0
     DestoryedEnemies: 0
   targetShip: {fileID: 0}

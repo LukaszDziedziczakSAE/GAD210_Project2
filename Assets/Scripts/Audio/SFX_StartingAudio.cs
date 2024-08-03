@@ -14,6 +14,11 @@ public class SFX_StartingAudio : MonoBehaviour
 
     private void Start()
     {
+        PlayStartSound();
+    }
+
+    public void PlayStartSound()
+    {
         audioSource.clip = clips[Random.Range(0, clips.Length)];
         audioSource.Play();
     }

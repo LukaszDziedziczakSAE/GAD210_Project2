@@ -8,6 +8,13 @@ public class UI_TurretListItem : MonoBehaviour
 {
     [SerializeField] TMP_Text text;
     [SerializeField] Button button;
+    [SerializeField] Color foregroundColor;
+    [SerializeField] Color backgroundColor;
+    [SerializeField] Color lowForegroundColor;
+    [SerializeField] Color lowBackgroundColor;
+    [SerializeField] Image foreground;
+    [SerializeField] Image background;
+    [SerializeField] Image innerHub;
 
     Turret turret;
 
@@ -22,7 +29,9 @@ public class UI_TurretListItem : MonoBehaviour
 
     public void UpdateListItem()
     {
-        text.text = turret.Power.CurrentPower.ToString() + " / " + turret.Power.MaxCapacity.ToString();
+        text.text = turret.Power.CurrentPower.ToString()/* + " / " + turret.Power.MaxCapacity.ToString()*/;
+        foreground.fillAmount = (float)turret.Power.CurrentPower / turret.Power.MaxCapacity;
+        SetColors();
     }
 
     private void OnDisable()
@@ -36,5 +45,22 @@ public class UI_TurretListItem : MonoBehaviour
     {
         //print("pressed recharge on " + turret.name);
         turret.Recharge();
+    }
+
+    private void SetColors()
+    {
+        if (turret.Power.CurrentPower > 0)
+        {
+            foreground.color = foregroundColor;
+            background.color = backgroundColor;
+            innerHub.color = foregroundColor;
+        }
+
+        else
+        {
+            foreground.color = lowForegroundColor;
+            background.color = lowBackgroundColor;
+            innerHub.color = lowForegroundColor;
+        }
     }
 }

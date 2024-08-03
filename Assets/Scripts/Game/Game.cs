@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 public class Game : MonoBehaviour
 {
     public static Game Instance { get; private set; }
-    [SerializeField] InputReader input;
+    [Header("Ships")]
     [SerializeField] CapitalShip transportShip;
     [SerializeField] Mothership mothership;
+
+    [Header("Referances")]
+    [SerializeField] InputReader input;
     [SerializeField] CameraController cameraController;
+    [SerializeField] SFX_StartingAudio startingAudio;
 
     public static InputReader Input => Instance.input;
     public static CapitalShip TransportShip => Instance.transportShip;
@@ -32,5 +36,10 @@ public class Game : MonoBehaviour
     public static void ReturnToStartScreen()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public static void PlayStartSound()
+    {
+        Instance.startingAudio.PlayStartSound();
     }
 }

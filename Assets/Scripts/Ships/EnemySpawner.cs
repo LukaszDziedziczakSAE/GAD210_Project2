@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
     int waveIndex;
     float waveTimer;
     Wave currentWave => waves[waveIndex];
+    bool firstSpawned = true;
 
     public enum EDirection
     {
@@ -56,6 +57,11 @@ public class EnemySpawner : MonoBehaviour
                 SpawnEnemy();
                 currentWave.SpawnedEnemies++;
                 ResetTimer();
+                if (!firstSpawned)
+                {
+                    firstSpawned = true;
+                    Game.PlayStartSound();
+                }
             }
         }
 
@@ -63,6 +69,8 @@ public class EnemySpawner : MonoBehaviour
         {
             waveIndex++;
             waveTimer = waveCooldown;
+            firstSpawned = false;
+            
         }
     }
 

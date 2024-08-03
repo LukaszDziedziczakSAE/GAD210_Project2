@@ -16,6 +16,9 @@ public class UI : MonoBehaviour
     bool mouseOverUI;
 
     public static bool MouseOverUI => Instance.mouseOverUI;
+    public static UI_View_Tactical TacticalView => Instance.tacticalView;
+    public static UI_View_Build MothershipView => Instance.mothershipView;
+    public static UI_View_Upgrade TurretView => Instance.turretView;
 
     private void Awake()
     {

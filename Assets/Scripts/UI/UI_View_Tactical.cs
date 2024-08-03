@@ -7,6 +7,8 @@ public class UI_View_Tactical : MonoBehaviour
     [SerializeField] UI_TurretList starboardTurretList;
     [SerializeField] UI_TurretList portTurretList;
 
+    [field: SerializeField] public UI_BoostButton BoostButton;
+
     private void OnEnable()
     {
         starboardTurretList.RedrawList();

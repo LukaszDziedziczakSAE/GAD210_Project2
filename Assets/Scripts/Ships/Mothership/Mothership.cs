@@ -11,6 +11,7 @@ public class Mothership : CapitalShip
     [field: SerializeField] public MothershipPower Power { get; private set; }
     [field: SerializeField] public MothershipResources Resources { get; private set; }
     [field: SerializeField] public MothershipTurretUpgradeMode TurretUpgradeMode { get; private set; }
+    [field: SerializeField] public MothershipSpeedBoost SpeedBoost { get; private set; }
 
     public Turret[] BuiltTurrets
     {

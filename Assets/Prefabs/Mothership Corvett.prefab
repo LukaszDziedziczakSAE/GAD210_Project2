@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 8782052171603070453}
   - component: {fileID: 8550814545382188460}
   - component: {fileID: 3159150469921193060}
+  - component: {fileID: 8874423396838938365}
   m_Layer: 7
   m_Name: Mothership Corvett
   m_TagString: Mothership
@@ -89,6 +90,7 @@ MonoBehaviour:
   <Power>k__BackingField: {fileID: 3998054204356117152}
   <Resources>k__BackingField: {fileID: 3691158514772854548}
   <TurretUpgradeMode>k__BackingField: {fileID: 8782052171603070453}
+  <SpeedBoost>k__BackingField: {fileID: 8874423396838938365}
 --- !u!114 &4420900690237043208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,11 +123,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5377938a04b0a914c97662ee049d6eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  rotationSpeed: 0.4
+  moveSpeed: 5.5
+  boostedSpeed: 11
+  rotationSpeed: 0.45
+  boostedRotationSpeed: 0.675
   targetProximity: 0.5
   targetWaypoint: {fileID: 0}
   targetLocation: {x: 0, y: 0, z: 0}
+  BoostedSpeed: 0
 --- !u!114 &3998054204356117152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +249,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8874423396838938365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615511301627232325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d855c60d279d3d4cb88634973354ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boostLength: 3
+  boostCost: 140
 --- !u!1 &1083043908493111295
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,12 +743,13 @@ AudioSource:
   m_GameObject: {fileID: 8710913710973501757}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2828451768472320668, guid: 2b8313f57b9268941bad81dd6698f10a,
+    type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

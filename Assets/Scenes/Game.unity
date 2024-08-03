@@ -803,22 +803,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mothership Corvett
       objectReference: {fileID: 0}
-    - target: {fileID: 701403451519165594, guid: 8e40e072d60acc345921609c4e477027,
-        type: 3}
-      propertyPath: Loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 701403451519165594, guid: 8e40e072d60acc345921609c4e477027,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 701403451519165594, guid: 8e40e072d60acc345921609c4e477027,
-        type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 2828451768472320668, guid: 2b8313f57b9268941bad81dd6698f10a,
-        type: 2}
     - target: {fileID: 2014418402838462508, guid: 8e40e072d60acc345921609c4e477027,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1189,7 +1173,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.5, z: 0}
-  m_LocalScale: {x: 500, y: 1, z: 500}
+  m_LocalScale: {x: 5000, y: 1, z: 5000}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1202,6 +1186,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3900331619673677929, guid: 254ebb8cfe827fa49af3d1fcf1316648,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3900331619673677929, guid: 254ebb8cfe827fa49af3d1fcf1316648,
         type: 3}
       propertyPath: targetWaypoint

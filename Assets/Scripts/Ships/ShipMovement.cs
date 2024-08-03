@@ -5,7 +5,9 @@ using UnityEngine;
 public class ShipMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 1.0f;
+    [SerializeField] float boostedSpeed = 10f;
     [SerializeField] float rotationSpeed = 1.0f;
+    [SerializeField] float boostedRotationSpeed = 1.0f;
     [SerializeField] float targetProximity = 0.5f;
     [SerializeField] Waypoint targetWaypoint;
     [SerializeField] Vector3 targetLocation;
@@ -13,6 +15,7 @@ public class ShipMovement : MonoBehaviour
     public event Action OnArrived;
     public bool IsMoving => targetLocation != Vector3.zero || targetWaypoint != null;
     private float startDistance;
+    public bool BoostedSpeed;
 
     private void Start()
     {
@@ -27,10 +30,10 @@ public class ShipMovement : MonoBehaviour
     {
         if (targetWaypoint == null && targetLocation == Vector3.zero) return;
 
-        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, rotationSpeed * Time.deltaTime, 0.0f);
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, (BoostedSpeed ? boostedRotationSpeed : rotationSpeed) * Time.deltaTime, 0.0f);
 
         transform.rotation = Quaternion.LookRotation(newDirection);
-        transform.position += transform.forward * moveSpeed * Time.deltaTime;
+        transform.position += transform.forward * (BoostedSpeed ? boostedSpeed : moveSpeed) * Time.deltaTime;
 
         if (reachedTargetPosition)
         {

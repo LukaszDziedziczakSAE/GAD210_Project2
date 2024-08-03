@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8524610949557358703}
   - component: {fileID: 7896106256952360991}
   - component: {fileID: 4517857645220409805}
+  - component: {fileID: 1650010599198986253}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -47,9 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfddcc4b9b53ba14d8f5ec0e2c9e0397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 7896106256952360991}
   transportShip: {fileID: 0}
   mothership: {fileID: 0}
+  input: {fileID: 7896106256952360991}
   cameraController: {fileID: 4517857645220409805}
   startingAudio: {fileID: 1533334929927647898}
 --- !u!114 &7896106256952360991
@@ -78,6 +79,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playCamera: {fileID: 0}
   brain: {fileID: 0}
+--- !u!114 &1650010599198986253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996437863924054240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e3145f495699c14a862b58ba37a3d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endPoint: {fileID: 0}
+  gameLength: 10
 --- !u!1001 &1289194276887257635
 PrefabInstance:
   m_ObjectHideFlags: 0

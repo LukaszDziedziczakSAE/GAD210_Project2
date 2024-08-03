@@ -32,6 +32,7 @@ public class UI_TurretListItem : MonoBehaviour
         text.text = turret.Power.CurrentPower.ToString()/* + " / " + turret.Power.MaxCapacity.ToString()*/;
         foreground.fillAmount = (float)turret.Power.CurrentPower / turret.Power.MaxCapacity;
         SetColors();
+        if (turret.Power.CurrentPower == 0) UI.Sound.PlayTurretEmpty();
     }
 
     private void OnDisable()
@@ -45,6 +46,7 @@ public class UI_TurretListItem : MonoBehaviour
     {
         //print("pressed recharge on " + turret.name);
         turret.Recharge();
+        UI.Sound.PlayTurretRefilled();
     }
 
     private void SetColors()

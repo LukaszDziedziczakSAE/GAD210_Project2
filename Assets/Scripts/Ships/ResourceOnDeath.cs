@@ -23,4 +23,9 @@ public class ResourceOnDeath : MonoBehaviour
     {
         Game.Mothership.Resources.AddResources(RewardOnKill);
     }
+
+    public void SetReward(int reward)
+    {
+        RewardOnKill = reward;
+    }
 }

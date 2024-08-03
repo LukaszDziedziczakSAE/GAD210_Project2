@@ -16,15 +16,7 @@ public class ShipMovement : MonoBehaviour
     public bool IsMoving => targetLocation != Vector3.zero || targetWaypoint != null;
     private float startDistance;
     public bool BoostedSpeed;
-
-    private void Start()
-    {
-        if (targetWaypoint != null)
-        {
-            startDistance = Vector3.Distance(transform.position, targetWaypoint.transform.position);
-        }
-
-    }
+    public float Speed => moveSpeed;
 
     private void Update()
     {
@@ -113,6 +105,14 @@ public class ShipMovement : MonoBehaviour
         {
             float currentDistance = Vector3.Distance(transform.position, targetWaypoint.transform.position);
             return 1 - (currentDistance / startDistance);
+        }
+    }
+
+    public void SetStartingDistance(Vector3 startPosition)
+    {
+        if (targetWaypoint != null)
+        {
+            startDistance = Vector3.Distance(startPosition, targetWaypoint.transform.position);
         }
     }
 }

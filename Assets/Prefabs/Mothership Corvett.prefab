@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CurrentHealth>k__BackingField: 0
-  <MaxHealth>k__BackingField: 5000
+  <MaxHealth>k__BackingField: 3000
   deathExplosion: {fileID: 0}
 --- !u!54 &3159150469921193060
 Rigidbody:

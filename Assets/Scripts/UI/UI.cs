@@ -12,6 +12,7 @@ public class UI : MonoBehaviour
     [SerializeField] UI_View_Upgrade turretView;
     [SerializeField] UI_HealthIndicator mothershipHealthIndicator;
     [SerializeField] UI_HealthIndicator transportShipHealthIndicator;
+    [SerializeField] SFX_UI_Alerts uiAlerts;
 
     bool mouseOverUI;
 
@@ -19,6 +20,7 @@ public class UI : MonoBehaviour
     public static UI_View_Tactical TacticalView => Instance.tacticalView;
     public static UI_View_Build MothershipView => Instance.mothershipView;
     public static UI_View_Upgrade TurretView => Instance.turretView;
+    public static SFX_UI_Alerts Sound => Instance.uiAlerts;
 
     private void Awake()
     {

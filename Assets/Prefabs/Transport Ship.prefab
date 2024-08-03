@@ -253,7 +253,7 @@ PrefabInstance:
     - target: {fileID: -260606172073468449, guid: dcbf62e7aa4068147852a44e50e89e57,
         type: 3}
       propertyPath: moveSpeed
-      value: 3.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -260606172073468449, guid: dcbf62e7aa4068147852a44e50e89e57,
         type: 3}
@@ -293,7 +293,7 @@ PrefabInstance:
     - target: {fileID: 2014418402838462508, guid: dcbf62e7aa4068147852a44e50e89e57,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -49.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2014418402838462508, guid: dcbf62e7aa4068147852a44e50e89e57,
         type: 3}
@@ -303,7 +303,7 @@ PrefabInstance:
     - target: {fileID: 2014418402838462508, guid: dcbf62e7aa4068147852a44e50e89e57,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 43.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2014418402838462508, guid: dcbf62e7aa4068147852a44e50e89e57,
         type: 3}
@@ -438,6 +438,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7183175492164573615}
+    - targetCorrespondingSourceObject: {fileID: 615511301627232325, guid: dcbf62e7aa4068147852a44e50e89e57,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1186857890120737475}
   m_SourcePrefab: {fileID: 100100000, guid: dcbf62e7aa4068147852a44e50e89e57, type: 3}
 --- !u!1 &4812195865608076787 stripped
 GameObject:
@@ -481,6 +485,23 @@ MonoBehaviour:
   <CurrentHealth>k__BackingField: 0
   <MaxHealth>k__BackingField: 10000
   deathExplosion: {fileID: 0}
+--- !u!114 &1186857890120737475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4812195865608076787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6852e5e626f0d541ae530f1b64c6728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPositions:
+  - {x: -43.2, y: 0, z: 27.3}
+  - {x: 61, y: 0, z: 19.3}
+  - {x: 49.4, y: 0, z: -28}
+  - {x: -52.7, y: 0, z: -31.2}
 --- !u!4 &5887964194068020634 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2014418402838462508, guid: dcbf62e7aa4068147852a44e50e89e57,

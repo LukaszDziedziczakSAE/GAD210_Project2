@@ -53,5 +53,11 @@ public class Health : MonoBehaviour
     }
 
     public float Percentage => CurrentHealth / MaxHealth;
+
+    public void SetMaxHealth(float maxHealth)
+    {
+        this.MaxHealth = maxHealth;
+        CurrentHealth = maxHealth;
+    }
     
 }

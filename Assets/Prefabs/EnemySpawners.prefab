@@ -46,100 +46,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3804202523726584608, guid: 1e5b0f97e4034c040891d3a3d989d086,
     type: 3}
-  height: 260
-  width: 260
+  height: 200
+  width: 200
   spawnTimer: 0
   spawnTime: 0.5
   waveCooldown: 10
   waves:
   - EnemiesToSpawn: 10
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
+    Health: 30
+    Damage: 10
+    Reward: 10
   - EnemiesToSpawn: 12
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
+    Health: 30
+    Damage: 10
+    Reward: 10
   - EnemiesToSpawn: 14
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
+    Health: 30
+    Damage: 10
+    Reward: 10
   - EnemiesToSpawn: 16
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
+    Health: 30
+    Damage: 10
+    Reward: 10
   - EnemiesToSpawn: 18
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
+    Health: 30
+    Damage: 10
+    Reward: 10
   - EnemiesToSpawn: 20
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 22
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 24
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 26
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 28
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 30
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 31
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 32
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 33
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 34
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 35
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 36
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 37
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 38
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 39
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 40
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 40
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 40
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 40
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 40
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 40
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 40
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 40
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 40
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
-  - EnemiesToSpawn: 40
-    SpawnedEnemies: 0
-    DestoryedEnemies: 0
+    Health: 30
+    Damage: 10
+    Reward: 10
+  - EnemiesToSpawn: 10
+    Health: 40
+    Damage: 15
+    Reward: 15
+  - EnemiesToSpawn: 12
+    Health: 40
+    Damage: 15
+    Reward: 15
+  - EnemiesToSpawn: 14
+    Health: 40
+    Damage: 15
+    Reward: 15
+  - EnemiesToSpawn: 16
+    Health: 40
+    Damage: 15
+    Reward: 15
+  - EnemiesToSpawn: 18
+    Health: 40
+    Damage: 15
+    Reward: 15
+  - EnemiesToSpawn: 20
+    Health: 40
+    Damage: 15
+    Reward: 15
   targetShip: {fileID: 0}

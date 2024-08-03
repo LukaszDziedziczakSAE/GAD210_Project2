@@ -115,4 +115,9 @@ public class ShipMovement : MonoBehaviour
             startDistance = Vector3.Distance(startPosition, targetWaypoint.transform.position);
         }
     }
+
+    public void FaceWaypoint()
+    {
+        transform.LookAt(targetWaypoint.transform.position);
+    }
 }

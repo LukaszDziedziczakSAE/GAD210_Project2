@@ -18,26 +18,11 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         ship = GetComponent<EnemyShip>();
-
     }
 
     private void Start()
-
     {
         ship.ShipMovement.OnArrived += OnArriveToWaypoint;
-        /* Waypoint = FindObjectsOfType<Waypoint>();
-         Game.Mothership.
-         for (int i = 0; i < Waypoint.Length; i++)
-         {
-             distance = Vector3.Distance(transform.position, Waypoint[i].transform.position);
-             if (distance < nearestDistance)
-             {
-                 NearestWaypoint = Waypoint[i];
-                 nearestDistance = distance;
-
-                 ShipMovement.SetTargetWaypoint(NearestWaypoint);
-             }
-         }*/
     }
 
     private void OnDisable()
@@ -76,7 +61,6 @@ public class EnemyAI : MonoBehaviour
         forward = waypointPair.ForwardIsClosest(transform.position);
         // use the movement comenonent to go to waypoint
         SetNextWaypoint();
-        // subscribe to the movement finished event, which prompts it to move to next waypoint
     }
 
     private void SetNextWaypoint()
@@ -84,13 +68,12 @@ public class EnemyAI : MonoBehaviour
         if (forward)
         {
             ship.ShipMovement.SetTargetWaypoint(waypointPair.FowardWaypoint);
-            //Debug.Log(name + " set forward waypoint");
         }
         else
         {
             ship.ShipMovement.SetTargetWaypoint(waypointPair.BackWaypoint);
-            //Debug.Log(name + " set back waypoint");
         }
+        ship.ShipMovement.FaceWaypoint();
     }
 
     private void OnArriveToWaypoint()

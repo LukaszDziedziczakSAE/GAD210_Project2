@@ -216,8 +216,8 @@ MonoBehaviour:
   button: {fileID: 2857184850414783679}
   foregroundColor: {r: 0.49411765, g: 0.69411767, b: 1, a: 1}
   backgroundColor: {r: 0.08627451, g: 0.42352942, b: 0.94509804, a: 1}
-  lowForegroundColor: {r: 1, g: 0.49411762, b: 0.52609855, a: 1}
-  lowBackgroundColor: {r: 0.8773585, g: 0.062077243, b: 0.11263735, a: 1}
+  lowForegroundColor: {r: 0.5943396, g: 0.31679422, b: 0.33400634, a: 1}
+  lowBackgroundColor: {r: 0.7735849, g: 0.09122462, b: 0.13387214, a: 1}
   foreground: {fileID: 3259193355065414569}
   background: {fileID: 1111248481319459338}
   innerHub: {fileID: 5315754858528145763}

@@ -44,11 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88fb46fe90236f4a8540bcbcde43803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetShip: {fileID: 0}
   enemyPrefab: {fileID: 3804202523726584608, guid: 1e5b0f97e4034c040891d3a3d989d086,
     type: 3}
   height: 200
   width: 200
-  spawnTimer: 0
   spawnTime: 0.5
   waveCooldown: 10
   waves:
@@ -64,40 +64,116 @@ MonoBehaviour:
     Health: 30
     Damage: 10
     Reward: 10
-  - EnemiesToSpawn: 16
-    Health: 30
+  - EnemiesToSpawn: 10
+    Health: 40
     Damage: 10
     Reward: 10
-  - EnemiesToSpawn: 18
-    Health: 30
+  - EnemiesToSpawn: 12
+    Health: 40
     Damage: 10
     Reward: 10
-  - EnemiesToSpawn: 20
-    Health: 30
+  - EnemiesToSpawn: 14
+    Health: 40
     Damage: 10
     Reward: 10
   - EnemiesToSpawn: 10
-    Health: 40
+    Health: 50
     Damage: 15
     Reward: 15
   - EnemiesToSpawn: 12
-    Health: 40
+    Health: 50
     Damage: 15
     Reward: 15
   - EnemiesToSpawn: 14
-    Health: 40
+    Health: 50
     Damage: 15
     Reward: 15
-  - EnemiesToSpawn: 16
-    Health: 40
+  - EnemiesToSpawn: 10
+    Health: 60
     Damage: 15
     Reward: 15
-  - EnemiesToSpawn: 18
-    Health: 40
+  - EnemiesToSpawn: 12
+    Health: 60
     Damage: 15
     Reward: 15
-  - EnemiesToSpawn: 20
-    Health: 40
+  - EnemiesToSpawn: 14
+    Health: 60
     Damage: 15
     Reward: 15
-  targetShip: {fileID: 0}
+  - EnemiesToSpawn: 10
+    Health: 70
+    Damage: 20
+    Reward: 20
+  - EnemiesToSpawn: 12
+    Health: 70
+    Damage: 20
+    Reward: 20
+  - EnemiesToSpawn: 14
+    Health: 70
+    Damage: 20
+    Reward: 20
+  - EnemiesToSpawn: 10
+    Health: 80
+    Damage: 20
+    Reward: 20
+  - EnemiesToSpawn: 12
+    Health: 80
+    Damage: 20
+    Reward: 20
+  - EnemiesToSpawn: 14
+    Health: 80
+    Damage: 20
+    Reward: 20
+  - EnemiesToSpawn: 10
+    Health: 90
+    Damage: 25
+    Reward: 25
+  - EnemiesToSpawn: 12
+    Health: 90
+    Damage: 25
+    Reward: 25
+  - EnemiesToSpawn: 14
+    Health: 90
+    Damage: 25
+    Reward: 25
+  - EnemiesToSpawn: 10
+    Health: 100
+    Damage: 25
+    Reward: 25
+  - EnemiesToSpawn: 12
+    Health: 100
+    Damage: 25
+    Reward: 25
+  - EnemiesToSpawn: 14
+    Health: 100
+    Damage: 25
+    Reward: 25
+  - EnemiesToSpawn: 10
+    Health: 110
+    Damage: 30
+    Reward: 30
+  - EnemiesToSpawn: 12
+    Health: 110
+    Damage: 30
+    Reward: 30
+  - EnemiesToSpawn: 14
+    Health: 110
+    Damage: 30
+    Reward: 30
+  - EnemiesToSpawn: 10
+    Health: 120
+    Damage: 30
+    Reward: 30
+  - EnemiesToSpawn: 12
+    Health: 120
+    Damage: 30
+    Reward: 30
+  - EnemiesToSpawn: 14
+    Health: 120
+    Damage: 30
+    Reward: 30
+  spawnTimer: 0
+  spawnedEnemies: 0
+  destoryedEnemies: 0
+  waveIndex: 0
+  waveTimer: 0

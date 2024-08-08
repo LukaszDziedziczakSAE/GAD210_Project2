@@ -24,6 +24,8 @@ public class UI_TurretList : MonoBehaviour
 
         foreach (Turret turret in turrets)
         {
+            if (turret.State != Turret.EState.Built) continue;
+
             UI_TurretListItem listItem = Instantiate(turretListItemPrefab, transform);
             listItem.Initilize(turret);
             list.Add(listItem);

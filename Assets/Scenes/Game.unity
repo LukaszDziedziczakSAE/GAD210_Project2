@@ -853,10 +853,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8874423396838938365, guid: 8e40e072d60acc345921609c4e477027,
+    - target: {fileID: 4437121100039432096, guid: 8e40e072d60acc345921609c4e477027,
         type: 3}
-      propertyPath: boostLength
-      value: 6
+      propertyPath: m_Priority
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1354,11 +1354,6 @@ PrefabInstance:
       propertyPath: endPoint
       value: 
       objectReference: {fileID: 1723298252}
-    - target: {fileID: 1650010599198986253, guid: 125e1e0c3a923a04584845d1ff29979a,
-        type: 3}
-      propertyPath: gameLength
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 4517857645220409805, guid: 125e1e0c3a923a04584845d1ff29979a,
         type: 3}
       propertyPath: brain

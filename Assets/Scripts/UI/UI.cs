@@ -8,7 +8,7 @@ public class UI : MonoBehaviour
     [SerializeField] UI_PowerIndicator powerIndicator;
     [SerializeField] UI_ResourcesIndicator resourcesIndicator;
     [SerializeField] UI_View_Tactical tacticalView;
-    [SerializeField] UI_View_Build mothershipView;
+    [SerializeField] UI_View_Mothership mothershipView;
     [SerializeField] UI_View_Upgrade turretView;
     [SerializeField] UI_HealthIndicator mothershipHealthIndicator;
     [SerializeField] UI_HealthIndicator transportShipHealthIndicator;
@@ -18,7 +18,7 @@ public class UI : MonoBehaviour
 
     public static bool MouseOverUI => Instance.mouseOverUI;
     public static UI_View_Tactical TacticalView => Instance.tacticalView;
-    public static UI_View_Build MothershipView => Instance.mothershipView;
+    public static UI_View_Mothership MothershipView => Instance.mothershipView;
     public static UI_View_Upgrade TurretView => Instance.turretView;
     public static SFX_UI_Alerts Sound => Instance.uiAlerts;
 
@@ -48,6 +48,7 @@ public class UI : MonoBehaviour
         Instance.turretView.gameObject.SetActive(false);
         Instance.mothershipView.gameObject.SetActive(false);
         Instance.tacticalView.gameObject.SetActive(true);
+        UI.Sound.PlayTacticalViewSelected();
     }
 
     public static void SwitchToMothershipView()
@@ -55,6 +56,7 @@ public class UI : MonoBehaviour
         Instance.turretView.gameObject.SetActive(false);
         Instance.tacticalView.gameObject.SetActive(false);
         Instance.mothershipView.gameObject.SetActive(true);
+        UI.Sound.PlayMothershipSelected();
     }
 
     public static void SwitchToTurretView()
@@ -62,6 +64,7 @@ public class UI : MonoBehaviour
         Instance.mothershipView.gameObject.SetActive(false);
         Instance.tacticalView.gameObject.SetActive(false);
         Instance.turretView.gameObject.SetActive(true);
+        UI.Sound.PlayTurretSelected();
     }
 
     public static void UpdateMothershipHealthIndicator()

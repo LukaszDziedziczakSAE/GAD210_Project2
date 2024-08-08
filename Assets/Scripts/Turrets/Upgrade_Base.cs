@@ -30,13 +30,14 @@ public abstract class Upgrade_Base : MonoBehaviour
 
     public void ApplyUpgrade()
     {
-        
-
-        if (Level >= Values.Length || !CanAfford) return;
-
-        Level++;
-        ConsumeCost();
-        ApplyValues();
+        if (Level < Values.Length && CanAfford)
+        {
+            Level++;
+            ConsumeCost();
+            ApplyValues();
+            UI.Sound.PlayTurretUpgraded();
+        }
+        else UI.Sound.PlayUnable();
     }
 
     public abstract void ApplyValues();

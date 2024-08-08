@@ -44,9 +44,7 @@ public class UI_TurretListItem : MonoBehaviour
 
     public void OnButtonPress()
     {
-        //print("pressed recharge on " + turret.name);
         turret.Recharge();
-        UI.Sound.PlayTurretRefilled();
     }
 
     private void SetColors()

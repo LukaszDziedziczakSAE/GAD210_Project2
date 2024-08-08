@@ -10,6 +10,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] LayerMask shipLayer;
     [SerializeField] bool drawDebugLine;
     [SerializeField] float raycastDistance = 200;
+    [SerializeField] PlayerMovementIndicator playerMovementIndicatorPrefab;
+    PlayerMovementIndicator playerMovementIndicator;
 
     private void Awake()
     {
@@ -32,9 +34,14 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        if (!mothership.BuildMode.InBuildMode && Game.Input.LeftClickDown && !UI.MouseOverUI)
+        /*if (!mothership.BuildMode.InBuildMode && Game.Input.LeftClickDown && !UI.MouseOverUI)
         {
             mothership.ShipMovement.SetTargetPosition(inputPlanePos);
+        }*/
+
+        if (!mothership.BuildMode.InBuildMode && Game.Input.LeftClickDown && !UI.MouseOverUI)
+        {
+            SetPlayerMovementIndicatorPosition(inputPlanePos);
         }
     }
 
@@ -61,7 +68,7 @@ public class PlayerInput : MonoBehaviour
             {
                 if (hit.collider.TryGetComponent<Turret>(out Turret turret))
                 {
-                    if (turret.State == Turret.EState.Buildable && turret.CanAfford) turret.Build();
+                    if (turret.State == Turret.EState.Buildable) turret.Build();
                     else if (turret.State == Turret.EState.Built) mothership.TurretUpgradeMode.EnterTurretUpgradeMode(turret);
                 }
                 
@@ -77,7 +84,11 @@ public class PlayerInput : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit, raycastDistance, shipLayer))
             {
                 if (hit.collider.tag == "Mothership") mothership.BuildMode.EnterBuildMode();
-                else mothership.ShipMovement.SetTargetPosition(hit.point);
+                else
+                {
+                    //mothership.ShipMovement.SetTargetPosition(hit.point);
+                    SpawnPlayerMovementIndicator(hit.point);
+                }
             }
         }
     }
@@ -105,5 +116,23 @@ public class PlayerInput : MonoBehaviour
     private void OnPauseMenuPress()
     {
         Game.ReturnToStartScreen();
+    }
+
+    private void SpawnPlayerMovementIndicator(Vector3 position)
+    {
+        if (playerMovementIndicator != null) Destroy(playerMovementIndicator.gameObject);
+
+        Vector3 spawnPosition = new Vector3(position.x, 0, position.z);
+
+        playerMovementIndicator = Instantiate(playerMovementIndicatorPrefab, spawnPosition, Quaternion.identity);
+    }
+
+    private void SetPlayerMovementIndicatorPosition(Vector3 position)
+    {
+        if (playerMovementIndicator != null)
+        {
+            Vector3 zeroedPosition = new Vector3(position.x, 0, position.z);
+            playerMovementIndicator.transform.position = zeroedPosition;
+        }
     }
 }

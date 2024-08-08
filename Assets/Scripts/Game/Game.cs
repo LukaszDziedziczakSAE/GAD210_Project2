@@ -14,6 +14,7 @@ public class Game : MonoBehaviour
     [SerializeField] InputReader input;
     [SerializeField] CameraController cameraController;
     [SerializeField] SFX_StartingAudio startingAudio;
+    [SerializeField] MatchState matchStatePrefab;
 
     public static InputReader Input => Instance.input;
     public static CapitalShip TransportShip => Instance.transportShip;
@@ -25,12 +26,19 @@ public class Game : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(this.gameObject);
 
-        transportShip.ShipMovement.OnArrived += ReturnToStartScreen;
+        transportShip.ShipMovement.OnArrived += TransportArrived;
     }
 
     private void OnDisable()
     {
-        transportShip.ShipMovement.OnArrived -= ReturnToStartScreen;
+        transportShip.ShipMovement.OnArrived -= TransportArrived;
+    }
+
+    private void TransportArrived()
+    {
+        MatchState matchState = SpawnMatchState();
+        matchState.Result = MatchState.EMatchResult.TransportSucess;
+        ReturnToStartScreen();
     }
 
     public static void ReturnToStartScreen()
@@ -41,5 +49,10 @@ public class Game : MonoBehaviour
     public static void PlayStartSound()
     {
         Instance.startingAudio.PlayStartSound();
+    }
+
+    public static MatchState SpawnMatchState()
+    {
+        return Instantiate(Instance.matchStatePrefab, Vector3.zero, Quaternion.identity);
     }
 }

@@ -38,8 +38,16 @@ public class Health : MonoBehaviour
             OnDeath?.Invoke(ship);
             OnThisDeath?.Invoke();
 
-            if (ship.Type != Ship.EType.Enemy)
+            if (ship.Type == Ship.EType.Transport)
             {
+                MatchState matchState = Game.SpawnMatchState();
+                matchState.Result = MatchState.EMatchResult.TransportDestroyed;
+                Game.ReturnToStartScreen();
+            }
+            else if (ship.Type == Ship.EType.Transport)
+            {
+                MatchState matchState = Game.SpawnMatchState();
+                matchState.Result = MatchState.EMatchResult.MothershipDestroyed;
                 Game.ReturnToStartScreen();
             }
             else Destroy(gameObject);

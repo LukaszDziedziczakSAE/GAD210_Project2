@@ -19,4 +19,11 @@ public class MothershipTurretUpgradeMode : MonoBehaviour
         SelectedTurret = null;
         UI.SwitchToMothershipView();
     }
+
+    public void ExitToTacticalMode()
+    {
+        Game.CameraController.SwitchToPlayCamera();
+        SelectedTurret = null;
+        UI.SwitchToPlayView();
+    }
 }

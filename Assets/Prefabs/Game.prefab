@@ -53,6 +53,8 @@ MonoBehaviour:
   input: {fileID: 7896106256952360991}
   cameraController: {fileID: 4517857645220409805}
   startingAudio: {fileID: 1533334929927647898}
+  matchStatePrefab: {fileID: 6617727813059067847, guid: e2b5243f57870d94d9a42ed0c7ece927,
+    type: 3}
 --- !u!114 &7896106256952360991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endPoint: {fileID: 0}
-  gameLength: 10
+  gameLength: 5
 --- !u!1001 &1289194276887257635
 PrefabInstance:
   m_ObjectHideFlags: 0

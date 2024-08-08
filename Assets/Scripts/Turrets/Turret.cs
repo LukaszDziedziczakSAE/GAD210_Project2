@@ -24,11 +24,10 @@ public class Turret : MonoBehaviour
     [field: SerializeField] public float Damage { get; private set; } = 10f;
     [field: SerializeField] public float PowerCostPerShot { get; private set; } = 10f;
     [field: SerializeField] public float FiringAngle { get; private set; } = 60f;
-
-    Mothership mothership;
     [field: SerializeField] public bool IsEnemy { get; private set; }
     [field: SerializeField] public Upgrade_Base[] Upgrades { get; private set; }
 
+    Mothership mothership;
 
     public enum EState
     {
@@ -112,8 +111,13 @@ public class Turret : MonoBehaviour
 
     public void Build()
     {
-        Game.Mothership.Resources.RemoveResources(Game.Mothership.BuildMode.TurretCost);
-        SetBuiltState();
+        if (CanAfford)
+        {
+            Game.Mothership.Resources.RemoveResources(Game.Mothership.BuildMode.TurretCost);
+            SetBuiltState();
+            UI.Sound.PlayTurretBuilt();
+        }
+        else UI.Sound.PlayUnable();
     }
 
     public void Fire()
@@ -143,23 +147,20 @@ public class Turret : MonoBehaviour
             int amountToRecharge = Mathf.Clamp(amount, 0, Power.PowerNeeded);
             mothership.Power.UsePower(amountToRecharge * PowerCostPerShot);
             Power.Resupply(amountToRecharge);
+            UI.Sound.PlayTurretRefilled();
+            OnRecharge?.Invoke();
         }
         else
         {
             //Debug.Log(name + " cannot afford to recharge");
+            UI.Sound.PlayUnable();
         }
-
-        OnRecharge?.Invoke();
     }
 
     public void SetPivot(float angle)
     {
         if (Type != EType.Port) angle += 180;
         if (pivot != null) pivot.eulerAngles = new Vector3 (pivot.eulerAngles.x, angle, pivot.eulerAngles.z);
-    }
-
-    public void SetPivot(Vector3 target)
-    {
     }
 
     public void SetFirepower(float value)

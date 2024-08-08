@@ -48,6 +48,7 @@ Transform:
   - {fileID: 2733829240047540784}
   - {fileID: 8601434057340191648}
   - {fileID: 2163319014109140656}
+  - {fileID: 6365767341458481146}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3762550539830869743
@@ -92,6 +93,7 @@ MonoBehaviour:
   <Resources>k__BackingField: {fileID: 3691158514772854548}
   <TurretUpgradeMode>k__BackingField: {fileID: 8782052171603070453}
   <SpeedBoost>k__BackingField: {fileID: 8874423396838938365}
+  <Powerplant>k__BackingField: {fileID: 4814735270717082233}
 --- !u!114 &4420900690237043208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +114,8 @@ MonoBehaviour:
     m_Bits: 392
   drawDebugLine: 0
   raycastDistance: 200
+  playerMovementIndicatorPrefab: {fileID: 4818572214989739356, guid: 3cf4c4efb45014443bb529a9ca5cac71,
+    type: 3}
 --- !u!114 &5369011025000880329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d855c60d279d3d4cb88634973354ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostLength: 3
+  boostLength: 6
   boostCost: 140
 --- !u!1 &1083043908493111295
 GameObject:
@@ -630,6 +634,130 @@ MonoBehaviour:
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
+--- !u!1 &7294202681942808978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6365767341458481146}
+  - component: {fileID: 4814735270717082233}
+  - component: {fileID: 9218169568124240361}
+  - component: {fileID: 3968424735703546503}
+  - component: {fileID: 1975165242089566089}
+  m_Layer: 7
+  m_Name: Powerplant
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6365767341458481146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294202681942808978}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.147, z: 6.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2014418402838462508}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4814735270717082233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294202681942808978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce25369aeb644b84cb2e471df9d3ee18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Camera>k__BackingField: {fileID: 0}
+  <Upgrades>k__BackingField:
+  - {fileID: 3968424735703546503}
+  - {fileID: 1975165242089566089}
+--- !u!65 &9218169568124240361
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294202681942808978}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 1, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3968424735703546503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294202681942808978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4901bd1c3e251a45b0d0ca016d0d7ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <UpgradeName>k__BackingField: Power Capacity
+  <Level>k__BackingField: 1
+  <Values>k__BackingField:
+  - 20
+  - 22
+  - 24
+  - 26
+  - 28
+  - 30
+  - 32
+  - 34
+  - 36
+  - 38
+  <Costs>k__BackingField: 64000000640000006400000064000000640000006400000064000000640000006400000064000000
+--- !u!114 &1975165242089566089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294202681942808978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99407f1aeabf9984088ff31a7ca711f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <UpgradeName>k__BackingField: Power Recharge
+  <Level>k__BackingField: 1
+  <Values>k__BackingField:
+  - 300
+  - 320
+  - 340
+  - 360
+  - 380
+  - 400
+  - 420
+  - 440
+  - 460
+  - 480
+  <Costs>k__BackingField: 64000000640000006400000064000000640000006400000064000000640000006400000064000000
 --- !u!1 &8358538305103732900
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,7 +783,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8358538305103732900}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 40, z: 0}
   m_LocalScale: {x: 0.9999999, y: 1, z: 0.9999999}
   m_ConstrainProportionsScale: 0
@@ -974,6 +1102,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Starboard Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.20497015
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9570003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.4110587
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.038456284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01686747
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4080294
+      objectReference: {fileID: 0}
     - target: {fileID: 7865817132464616656, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1146,6 +1304,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Starboard Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.20499977
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9570003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.411115
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.038456284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01686747
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4080294
+      objectReference: {fileID: 0}
     - target: {fileID: 7865817132464616656, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1231,6 +1419,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Port Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.20499924
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9570003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.411116
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.038456284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01686747
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4080294
       objectReference: {fileID: 0}
     - target: {fileID: 3007576580211418524, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
@@ -1543,6 +1761,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Port Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.20511463
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9570003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.4110582
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.038456284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01686747
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4080294
+      objectReference: {fileID: 0}
     - target: {fileID: 3007576580211418524, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
       propertyPath: <Type>k__BackingField
@@ -1711,6 +1959,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Starboard Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.20499972
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.411115
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.038456284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01686747
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4080294
+      objectReference: {fileID: 0}
     - target: {fileID: 7865817132464616656, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1797,6 +2070,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Starboard Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.20500067
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9570003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.4111178
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.038456284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01686747
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4080294
+      objectReference: {fileID: 0}
     - target: {fileID: 7865817132464616656, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1882,6 +2185,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Port Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.20497158
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.411115
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.038456284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01686747
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4080294
       objectReference: {fileID: 0}
     - target: {fileID: 3007576580211418524, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
@@ -2068,6 +2396,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Starboard Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.20488527
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9570003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.4110582
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.038456284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01686747
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4080294
+      objectReference: {fileID: 0}
     - target: {fileID: 3007576580211418524, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
       propertyPath: <ShowDebugs>k__BackingField
@@ -2158,6 +2516,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Starboard Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.20488527
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9570003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.4110587
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.038456284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01686747
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4080294
       objectReference: {fileID: 0}
     - target: {fileID: 7865817132464616656, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
@@ -2391,6 +2779,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Port Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.2050555
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9570003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.4110587
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.038456284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01686747
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4080294
+      objectReference: {fileID: 0}
     - target: {fileID: 3007576580211418524, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
       propertyPath: <Type>k__BackingField
@@ -2567,6 +2985,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Starboard Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.20488432
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9570003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.4110572
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.038456284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01686747
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4080294
       objectReference: {fileID: 0}
     - target: {fileID: 7865817132464616656, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
@@ -2826,6 +3274,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Port Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.20514324
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9570003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.4110844
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.038456284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01686747
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4080294
+      objectReference: {fileID: 0}
     - target: {fileID: 3007576580211418524, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
       propertyPath: <Type>k__BackingField
@@ -2917,6 +3395,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Port Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.20505694
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9570003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.4110577
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.038456284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01686747
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4080294
+      objectReference: {fileID: 0}
     - target: {fileID: 3007576580211418524, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
       propertyPath: <Type>k__BackingField
@@ -3007,6 +3515,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Port Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.20500013
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9570003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.411115
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.038456284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01686747
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4080294
       objectReference: {fileID: 0}
     - target: {fileID: 3007576580211418524, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
@@ -3173,6 +3711,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Starboard Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.20494297
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9570003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.4110577
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.038456284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01686747
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4080294
+      objectReference: {fileID: 0}
     - target: {fileID: 7865817132464616656, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3258,6 +3826,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Port Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.20511177
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9570003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.4110572
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.038456284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01686747
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678816341321111198, guid: 19e4e7224f000a54c9a4a6022d171b7a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4080294
       objectReference: {fileID: 0}
     - target: {fileID: 3007576580211418524, guid: 19e4e7224f000a54c9a4a6022d171b7a,
         type: 3}

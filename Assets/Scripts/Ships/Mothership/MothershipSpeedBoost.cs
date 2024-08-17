@@ -31,7 +31,7 @@ public class MothershipSpeedBoost : MonoBehaviour
 
     public void ActivateBoost()
     {
-        print("Boost activated");
+        //print("Boost activated");
         mothership.Power.UsePower(boostCost);
         boostStartTime = Time.time;
         mothership.ShipMovement.BoostedSpeed = true;
@@ -43,5 +43,15 @@ public class MothershipSpeedBoost : MonoBehaviour
         {
             return mothership.Power.CanAfford(boostCost, out int amount);
         }
+    }
+
+    public void SetLength(float newLength)
+    {
+        boostLength = newLength;
+    }
+
+    public void SetCost(int newCost)
+    {
+        boostCost = newCost;
     }
 }

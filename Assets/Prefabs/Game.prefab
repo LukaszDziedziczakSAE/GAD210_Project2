@@ -94,7 +94,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endPoint: {fileID: 0}
-  gameLength: 5
+  gameLengthMin: 5
+  gameLengthMax: 10
 --- !u!1001 &1289194276887257635
 PrefabInstance:
   m_ObjectHideFlags: 0

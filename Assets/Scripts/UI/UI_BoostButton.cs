@@ -28,10 +28,15 @@ public class UI_BoostButton : MonoBehaviour
 
     private void OnButtonPress()
     {
-        if (!Game.Mothership.SpeedBoost.CanAfford) return;
-
-        boostButton.interactable = false;
-        Game.Mothership.SpeedBoost.ActivateBoost();
+        if (Game.Mothership.SpeedBoost.CanAfford)
+        {
+            boostButton.interactable = false;
+            Game.Mothership.SpeedBoost.ActivateBoost();
+        }
+        else
+        {
+            UI.Sound.PlayUnable();
+        }
     }
 
     public void BoostComplete()

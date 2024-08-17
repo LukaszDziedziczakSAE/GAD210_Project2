@@ -22,7 +22,10 @@ public class Health : MonoBehaviour
     {
         CurrentHealth = MaxHealth;
 
+        if (ship.Type == Ship.EType.Mothership) UI.UpdateMothershipHealthIndicator();
+        if (ship.Type == Ship.EType.Transport) UI.UpdateTransportShipHealthIndicator();
     }
+
     public void ApplyDamage(float damage)
     {
         //Debug.Log(name + " took " + damage + " damage");

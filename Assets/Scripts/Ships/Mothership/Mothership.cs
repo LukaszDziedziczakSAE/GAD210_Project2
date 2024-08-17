@@ -10,9 +10,9 @@ public class Mothership : CapitalShip
     [field: SerializeField] public MothershipBuildMode BuildMode { get; private set; }
     [field: SerializeField] public MothershipPower Power { get; private set; }
     [field: SerializeField] public MothershipResources Resources { get; private set; }
-    [field: SerializeField] public MothershipTurretUpgradeMode TurretUpgradeMode { get; private set; }
+    [field: SerializeField] public MothershipUpgradeMode UpgradeMode { get; private set; }
     [field: SerializeField] public MothershipSpeedBoost SpeedBoost { get; private set; }
-    [field: SerializeField] public MothershipPowerplant Powerplant { get; private set; }
+    [field: SerializeField] public MothershipModule[] Modules { get; private set; }
 
     public Turret[] BuiltTurrets
     {
@@ -56,14 +56,5 @@ public class Mothership : CapitalShip
         }
     }
 
-    public Turret[] GetPortTurrets()
-    {
-        List<Turret> turrets = new List<Turret>();
-        foreach (Turret turret in Turrets)
-        {
-            if (turret.State == Turret.EState.Built && turret.Type == Turret.EType.Port) turrets.Add(turret);
-        }
-
-        return turrets.ToArray();
-    }
+    public bool InTacticalMode => !BuildMode.InBuildMode && !UpgradeMode.InUpgradeMode;
 }

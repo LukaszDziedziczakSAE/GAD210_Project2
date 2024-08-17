@@ -55,7 +55,7 @@ public class UI_TurretInfoItem : MonoBehaviour
 
         else // built turret
         {
-            Game.Mothership.TurretUpgradeMode.EnterTurretUpgradeMode(turret);
+            Game.Mothership.UpgradeMode.EnterUpgradeMode(turret);
         }
     }
 }

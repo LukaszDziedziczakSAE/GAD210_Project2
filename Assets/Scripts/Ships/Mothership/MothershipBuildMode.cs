@@ -36,4 +36,9 @@ public class MothershipBuildMode : MonoBehaviour
 
         InBuildMode = false;
     }
+
+    public void EnterUpgradeMode()
+    {
+        InBuildMode = false;
+    }
 }

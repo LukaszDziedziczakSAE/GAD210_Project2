@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class MothershipPowerRechargeRateUpgrade : Upgrade_Base
 {
+    Mothership mothership;
+
+    private void Awake()
+    {
+        mothership = GetComponentInParent<Mothership>();
+    }
+
     public override void ApplyValues()
     {
+        mothership.Power.SetRechargeRate(CurrentValue);
     }
 }

@@ -20,4 +20,9 @@ public class UI_View_Tactical : MonoBehaviour
         starboardTurretList.ClearList();
         portTurretList.ClearList();
     }
+
+    public void OnMothershipButtonPress()
+    {
+        Game.Mothership.BuildMode.EnterBuildMode();
+    }
 }

@@ -47,4 +47,14 @@ public class MothershipPower : MonoBehaviour
         amount = Mathf.FloorToInt(CurrentPower / cost);
         return true;
     }
+
+    public void SetMax(float newMax)
+    {
+        MaxPower = newMax;
+    }
+
+    public void SetRechargeRate(float newRate)
+    {
+        RechargeRate = newRate;
+    }
 }

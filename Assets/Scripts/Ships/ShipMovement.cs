@@ -120,4 +120,14 @@ public class ShipMovement : MonoBehaviour
     {
         transform.LookAt(targetWaypoint.transform.position);
     }
+
+    public void SetSpeed(float newSpeed)
+    {
+        moveSpeed = newSpeed;
+    }
+
+    public void SetBoostedSpeed(float newSpeed)
+    {
+        boostedSpeed = newSpeed;
+    }
 }

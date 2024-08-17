@@ -49,6 +49,7 @@ public class UI : MonoBehaviour
         Instance.mothershipView.gameObject.SetActive(false);
         Instance.tacticalView.gameObject.SetActive(true);
         UI.Sound.PlayTacticalViewSelected();
+        Instance.mouseOverUI = false;
     }
 
     public static void SwitchToMothershipView()
@@ -57,6 +58,7 @@ public class UI : MonoBehaviour
         Instance.tacticalView.gameObject.SetActive(false);
         Instance.mothershipView.gameObject.SetActive(true);
         UI.Sound.PlayMothershipSelected();
+        Instance.mouseOverUI = false;
     }
 
     public static void SwitchToTurretView()
@@ -65,6 +67,7 @@ public class UI : MonoBehaviour
         Instance.tacticalView.gameObject.SetActive(false);
         Instance.turretView.gameObject.SetActive(true);
         UI.Sound.PlayTurretSelected();
+        Instance.mouseOverUI = false;
     }
 
     public static void UpdateMothershipHealthIndicator()

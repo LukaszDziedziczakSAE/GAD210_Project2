@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MothershipPowerplant : MonoBehaviour
+public class MothershipPowerplant : MothershipModule
 {
-    [field: SerializeField] public CinemachineVirtualCamera Camera { get; private set; }
-    [field: SerializeField] public Upgrade_Base[] Upgrades { get; private set; }
+    
 }

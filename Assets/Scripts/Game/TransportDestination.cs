@@ -6,7 +6,10 @@ using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 public class TransportDestination : MonoBehaviour
 {
     [SerializeField] Waypoint endPoint;
-    [SerializeField] float gameLength; // in minutes
+    [SerializeField] float gameLengthMin; // in minutes
+    [SerializeField] float gameLengthMax; // in minutes
+
+    float gameLength => Random.Range(gameLengthMin, gameLengthMax);
 
     float distance => transportShip.ShipMovement.Speed * (gameLength * 60);
 

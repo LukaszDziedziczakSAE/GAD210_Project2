@@ -5,7 +5,7 @@ using UnityEngine;
 public class UI_UpgradesList : MonoBehaviour
 {
     [SerializeField] UI_UpgradeItem upgradeItemPrefab;
-    MothershipTurretUpgradeMode upgradeMode => Game.Mothership.TurretUpgradeMode;
+    MothershipUpgradeMode upgradeMode => Game.Mothership.UpgradeMode;
     List<UI_UpgradeItem> list = new List<UI_UpgradeItem>();
 
     private void OnEnable()
@@ -20,11 +20,24 @@ public class UI_UpgradesList : MonoBehaviour
 
     private void BuildList()
     {
-        foreach (Upgrade_Base upgrade in upgradeMode.SelectedTurret.Upgrades)
+        if (upgradeMode.SelectedTurret != null)
         {
-            UI_UpgradeItem upgradeItem = Instantiate(upgradeItemPrefab, transform);
-            upgradeItem.Initilize(upgrade);
-            list.Add(upgradeItem);
+            foreach (Upgrade_Base upgrade in upgradeMode.SelectedTurret.Upgrades)
+            {
+                UI_UpgradeItem upgradeItem = Instantiate(upgradeItemPrefab, transform);
+                upgradeItem.Initilize(upgrade);
+                list.Add(upgradeItem);
+            }
+        }
+
+        else if (upgradeMode.SelectedModule != null)
+        {
+            foreach (Upgrade_Base upgrade in upgradeMode.SelectedModule.Upgrades)
+            {
+                UI_UpgradeItem upgradeItem = Instantiate(upgradeItemPrefab, transform);
+                upgradeItem.Initilize(upgrade);
+                list.Add(upgradeItem);
+            }
         }
     }
 

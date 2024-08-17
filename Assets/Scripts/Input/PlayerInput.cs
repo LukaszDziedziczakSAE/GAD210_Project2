@@ -49,14 +49,16 @@ public class PlayerInput : MonoBehaviour
     {
         if (UI.MouseOverUI) return;
 
-        if (Game.CameraController.InTurretCameraMode)
+        //Debug.Log("InUpgradeMode = " + mothership.UpgradeMode.InUpgradeMode + ", InBuildMode = " + mothership.BuildMode.InBuildMode + ", InTacticalMode = " + mothership.InTacticalMode);
+
+        if (mothership.UpgradeMode.InUpgradeMode)
         {
             Ray ray = Camera.main.ScreenPointToRay(Game.Input.MousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit, raycastDistance, shipLayer))
             {
                 if (hit.collider.tag == "Mothership" || hit.collider.tag == "InputPlane")
                 {
-                    mothership.TurretUpgradeMode.ExitTurretUpgradeMode();
+                    mothership.UpgradeMode.ExitTurretUpgradeMode();
                 }
             }
         }
@@ -69,7 +71,7 @@ public class PlayerInput : MonoBehaviour
                 if (hit.collider.TryGetComponent<Turret>(out Turret turret))
                 {
                     if (turret.State == Turret.EState.Buildable) turret.Build();
-                    else if (turret.State == Turret.EState.Built) mothership.TurretUpgradeMode.EnterTurretUpgradeMode(turret);
+                    else if (turret.State == Turret.EState.Built) mothership.UpgradeMode.EnterUpgradeMode(turret);
                 }
                 
                 else if (hit.collider.tag == "InputPlane") mothership.BuildMode.ExitBuildMode();
@@ -78,7 +80,7 @@ public class PlayerInput : MonoBehaviour
             else Debug.LogWarning("Build Mode Raycast Miss");
         }
 
-        else if (!mothership.BuildMode.InBuildMode)
+        else if (mothership.InTacticalMode)
         {
             Ray ray = Camera.main.ScreenPointToRay(Game.Input.MousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit, raycastDistance, shipLayer))

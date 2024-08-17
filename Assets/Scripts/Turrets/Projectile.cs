@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.LogWarning(name + " hit " + other.name);
+        //Debug.LogWarning(name + " hit " + other.name);
         if (other.tag == "Turret") return;
         if (other.TryGetComponent<Ship>(out Ship ship))
         {

@@ -8,9 +8,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera playCamera;
     [SerializeField] CinemachineBrain brain;
 
-    CinemachineVirtualCamera turretCamera;
+    CinemachineVirtualCamera upgradeCamera;
 
-    public bool InTurretCameraMode => turretCamera != null;
+    public bool InTurretCameraMode => upgradeCamera != null;
     public bool InPlayCameraMode => playCamera.Priority == 10;
 
     private void Update()
@@ -20,10 +20,10 @@ public class CameraController : MonoBehaviour
 
     public void SwitchToMothershipCamera()
     {
-        if (turretCamera != null)
+        if (upgradeCamera != null)
         {
-            turretCamera.Priority = 5;
-            turretCamera = null;
+            upgradeCamera.Priority = 5;
+            upgradeCamera = null;
         }
         playCamera.Priority = 5;
         Game.Mothership.Camera.Priority = 10;
@@ -31,10 +31,10 @@ public class CameraController : MonoBehaviour
 
     public void SwitchToPlayCamera()
     {
-        if (turretCamera != null)
+        if (upgradeCamera != null)
         {
-            turretCamera.Priority = 5;
-            turretCamera = null;
+            upgradeCamera.Priority = 5;
+            upgradeCamera = null;
         }
         Game.Mothership.Camera.Priority = 5;
         playCamera.Priority = 10;
@@ -44,7 +44,7 @@ public class CameraController : MonoBehaviour
     {
         Game.Mothership.Camera.Priority = 5;
         playCamera.Priority = 5;
-        turretCamera = turretCam;
-        turretCamera.Priority = 10;
+        upgradeCamera = turretCam;
+        upgradeCamera.Priority = 10;
     }
 }
